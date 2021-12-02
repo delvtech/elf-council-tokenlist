@@ -1,5 +1,5 @@
 import hre from "hardhat";
-import { TreasuryInfo } from "src/tokenlist/types";
+import { TreasuryInfo } from "src/types";
 import { Treasury__factory } from "types";
 
 export const { provider } = hre.ethers;

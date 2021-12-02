@@ -1,15 +1,15 @@
 import { TokenList } from "@uniswap/token-lists";
 import fs from "fs";
 import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
-import { getAirdropInfo } from "src/tokenlist/getAirdropInfo";
-import { getCoreVotingInfo } from "src/tokenlist/getCoreVotingInfo";
-import { getGscVaultInfo } from "src/tokenlist/getGscVaultInfo";
-import { getLockingVaultInfo } from "src/tokenlist/getLockingVaultInfo";
-import { getOptimisticGrantsInfo } from "src/tokenlist/getOptimisticGrantsInfo";
-import { getOptimisticRewardsVaultInfo } from "src/tokenlist/getOptimisticRewardsVaultInfo";
-import { getTimelockInfo } from "src/tokenlist/getTimelock";
-import { getTreasuryInfo } from "src/tokenlist/getTreasuryInfo";
-import { getVotingTokenInfo } from "src/tokenlist/getVotingTokenInfo";
+import { getAirdropInfo } from "src/getAirdropInfo";
+import { getCoreVotingInfo } from "src/getCoreVotingInfo";
+import { getGscVaultInfo } from "src/getGscVaultInfo";
+import { getLockingVaultInfo } from "src/getLockingVaultInfo";
+import { getOptimisticGrantsInfo } from "src/getOptimisticGrantsInfo";
+import { getOptimisticRewardsVaultInfo } from "src/getOptimisticRewardsVaultInfo";
+import { getTimelockInfo } from "src/getTimelock";
+import { getTreasuryInfo } from "src/getTreasuryInfo";
+import { getVotingTokenInfo } from "src/getVotingTokenInfo";
 
 export async function getTokenList(
   addressesJson: AddressesJsonFile,

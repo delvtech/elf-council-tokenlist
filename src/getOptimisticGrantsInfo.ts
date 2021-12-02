@@ -1,6 +1,6 @@
 import { formatUnits } from "ethers/lib/utils";
 import hre from "hardhat";
-import { OptimisticsGrantsContractInfo } from "src/tokenlist/types";
+import { OptimisticsGrantsContractInfo } from "src/types";
 import { ERC20Permit__factory, OptimisticGrants__factory } from "types";
 
 export const { provider } = hre.ethers;
