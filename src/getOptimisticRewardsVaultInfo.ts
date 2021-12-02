@@ -1,14 +1,15 @@
-import hre from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { OptimisticRewards__factory } from "types";
 
 import { OptimisticRewardsVaultInfo } from "./types";
 
-export const { provider } = hre.ethers;
 export async function getOptimisticRewardsVaultInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<OptimisticRewardsVaultInfo> {
+  const { provider } = hre.ethers;
   const optimisticRewardsVaultContract = OptimisticRewards__factory.connect(
     tokenAddress,
     provider

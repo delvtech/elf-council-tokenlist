@@ -1,3 +1,4 @@
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { TokenList } from "@uniswap/token-lists";
 import fs from "fs";
 import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
@@ -12,6 +13,7 @@ import { getTreasuryInfo } from "src/getTreasuryInfo";
 import { getVotingTokenInfo } from "src/getVotingTokenInfo";
 
 export async function getTokenList(
+  hre: HardhatRuntimeEnvironment,
   addressesJson: AddressesJsonFile,
   name: string,
   outputPath: string
@@ -33,63 +35,73 @@ export async function getTokenList(
     },
   } = addressesJson;
 
-  const elementTokenInfo = await getVotingTokenInfo(chainId, elementToken);
+  const elementTokenInfo = await getVotingTokenInfo(hre, chainId, elementToken);
 
   const coreVotingInfo = await getCoreVotingInfo(
+    hre,
     chainId,
     coreVoting,
     "Element Core Voting Contract"
   );
 
   const gscCoreVotingInfo = await getCoreVotingInfo(
+    hre,
     chainId,
     gscCoreVoting,
     "Element GSC Core Voting Contract"
   );
 
   const lockingVaultInfo = await getLockingVaultInfo(
+    hre,
     chainId,
     lockingVault,
     "Element Locking Vault"
   );
 
   const vestingVaultInfo = await getLockingVaultInfo(
+    hre,
     chainId,
     vestingVault,
     "Element Vesting Vault"
   );
 
   const gscVaultInfo = await getGscVaultInfo(
+    hre,
     chainId,
     gscVault,
     "Element Governance Steering Committee Vault"
   );
 
   const optimisticRewardsVaultInfo = await getOptimisticRewardsVaultInfo(
+    hre,
     chainId,
     optimisticRewardsVault,
     "Element Optimistic Rewards Vault"
   );
 
   const optimisticGrantsInfo = await getOptimisticGrantsInfo(
+    hre,
     chainId,
     optimisticGrants,
     "Element Optimistic Grants Vault"
   );
 
   const airdropInfo = await getAirdropInfo(
+    hre,
     chainId,
     airdrop,
     "Element Airdrop Contract"
   );
 
   const treasuryInfo = await getTreasuryInfo(
+    hre,
     chainId,
     treasury,
     "Element Treasury"
   );
 
   const timelockInfo = await getTimelockInfo(
+    hre,
     chainId,
     timeLock,
     "Element Timelock"

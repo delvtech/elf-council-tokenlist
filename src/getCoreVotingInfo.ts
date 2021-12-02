@@ -1,13 +1,14 @@
-import hre from "hardhat";
-import { CoreVotingContractInfo } from "src/tokenlist/types";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { CoreVotingContractInfo } from "src/types";
 import { CoreVoting__factory } from "types";
 
-export const { provider } = hre.ethers;
 export async function getCoreVotingInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<CoreVotingContractInfo> {
+  const { provider } = hre.ethers;
   const coreVotingContract = CoreVoting__factory.connect(
     tokenAddress,
     provider

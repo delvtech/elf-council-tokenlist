@@ -1,11 +1,19 @@
-import addressesJson from "src/addresses/testnet.addresses.json";
 import { getTokenList } from "src/getTokenList";
+import hre from "hardhat";
 
-// Generate the testnet.tokenlist.json file
+// Figure out which addresses.json to use based on the network that hardhat was
+// called with at the command line, eg: "mainnet" or "goerli" for now.
+const network = hre.network.name == "hardhat" ? "mainnet" : hre.network.name;
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const addressesJson = require(`src/addresses/${network}.addresses.json`);
+
+// Generate the .tokenlist.json file
 getTokenList(
+  hre,
   addressesJson,
-  "Council Testnet token list",
-  "src/tokenlist/testnet.tokenlist.json"
+  `Council ${network} token list`,
+  `src/${network}.tokenlist.json`
 )
   .then(() => process.exit(0))
   .catch((error: Error) => {

@@ -1,14 +1,15 @@
-import hre from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { GSCVault__factory } from "types";
 
 import { GSCVaultInfo } from "./types";
 
-export const { provider } = hre.ethers;
 export async function getGscVaultInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<GSCVaultInfo> {
+  const { provider } = hre.ethers;
   const gscVaultContract = GSCVault__factory.connect(tokenAddress, provider);
 
   const coreVotingPromise = gscVaultContract.coreVoting();

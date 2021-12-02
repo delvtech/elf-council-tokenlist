@@ -1,14 +1,15 @@
 import { formatUnits } from "ethers/lib/utils";
-import hre from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { OptimisticsGrantsContractInfo } from "src/types";
 import { ERC20Permit__factory, OptimisticGrants__factory } from "types";
 
-export const { provider } = hre.ethers;
 export async function getOptimisticGrantsInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<OptimisticsGrantsContractInfo> {
+  const { provider } = hre.ethers;
   const optimisticGrantsContract = OptimisticGrants__factory.connect(
     tokenAddress,
     provider

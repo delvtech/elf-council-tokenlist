@@ -1,12 +1,13 @@
 import { TokenInfo } from "@uniswap/token-lists";
-import hre from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { ERC20Permit__factory } from "types/factories/ERC20Permit__factory";
 
-export const { provider } = hre.ethers;
 export async function getVotingTokenInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string
 ): Promise<TokenInfo> {
+  const { provider } = hre.ethers;
   const tokenContract = ERC20Permit__factory.connect(tokenAddress, provider);
 
   const name = await tokenContract.name();

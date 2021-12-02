@@ -1,14 +1,15 @@
-import hre from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { LockingVault__factory } from "types";
 
 import { LockingVaultInfo } from "./types";
 
-export const { provider } = hre.ethers;
 export async function getLockingVaultInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<LockingVaultInfo> {
+  const { provider } = hre.ethers;
   const lockingVaultContract = LockingVault__factory.connect(
     tokenAddress,
     provider

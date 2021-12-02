@@ -1,15 +1,15 @@
-import hre from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Timelock__factory } from "types";
 
 import { TimelockInfo } from "./types";
 
-export const { provider } = hre.ethers;
-
 export async function getTimelockInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<TimelockInfo> {
+  const { provider } = hre.ethers;
   const timelockContract = Timelock__factory.connect(tokenAddress, provider);
 
   const waitTime = await timelockContract.waitTime();

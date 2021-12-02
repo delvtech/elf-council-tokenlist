@@ -1,13 +1,14 @@
-import hre from "hardhat";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { TreasuryInfo } from "src/types";
 import { Treasury__factory } from "types";
 
-export const { provider } = hre.ethers;
 export async function getTreasuryInfo(
+  hre: HardhatRuntimeEnvironment,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<TreasuryInfo> {
+  const { provider } = hre.ethers;
   const treasuryContract = Treasury__factory.connect(tokenAddress, provider);
 
   const owner = await treasuryContract.owner();
