@@ -1,5 +1,5 @@
 NETWORK="$1"
 
 # Build the specified tokenlist.json file
-npx hardhat run src/main.ts src/tokenlist/buildTokenList.ts --network $NETWORK --no-compile
+npx hardhat build-tokenlist --chain $NETWORK --network $NETWORK
 # compile index.ts template

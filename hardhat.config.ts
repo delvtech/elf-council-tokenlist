@@ -7,7 +7,8 @@ import "hardhat-ethernal";
 // This adds support for typescript paths mappings
 import "tsconfig-paths/register";
 
-import { extendEnvironment, HardhatUserConfig } from "hardhat/config";
+import { extendEnvironment, HardhatUserConfig, task } from "hardhat/config";
+import { getTokenList } from "src/getTokenList";
 
 const syncEthernal = Boolean(process.env.SYNC_ETHERNAL);
 extendEnvironment((hre) => {
@@ -16,6 +17,30 @@ extendEnvironment((hre) => {
   // paid feature, disable for now
   hre.ethernalTrace = false;
 });
+
+interface BuildTaskArgs {
+  chain: "mainnet" | "goerli";
+}
+
+task("build-tokenlist", "Builds a council tokenlist for a single chain")
+  .addParam(
+    "chain",
+    "The chain name, i.e. goerli, mainnet",
+    undefined,
+    undefined,
+    false
+  )
+  .setAction(async (taskArgs, hre) => {
+    const { chain } = taskArgs as BuildTaskArgs;
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const addressesJson = require(`src/addresses/${chain}.addresses.json`);
+    getTokenList(
+      hre,
+      addressesJson,
+      `Council ${chain} token list`,
+      `src/${chain}.tokenlist.json`
+    );
+  });
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
