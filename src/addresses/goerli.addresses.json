@@ -1,6 +1,6 @@
 {
   "addresses": {
-    "airdropContract": "0x90123455668bA2B12CA76962a88c2e1c20B17F62",
+    "airdrop": "0x90123455668bA2B12CA76962a88c2e1c20B17F62",
     "coreVoting": "0x5264a36f4839F45d753701B5BDFc66c3f4ad2F96",
     "elementToken": "0xa7E598Ab2c0df4A55feBFDD32ee6Cc64d2aE54eA",
     "gscCoreVoting": "0x43161786d23627C02f7D3AFD20489924b491b009",
