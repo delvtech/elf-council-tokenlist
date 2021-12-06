@@ -16,6 +16,7 @@
  */
 
 import { TokenList } from '@uniswap/token-lists';
+import { getTokenList as getTokenListSrc } from 'src/getTokenList';
 
 // TODO: add this when we have it
 // export const mainnetTokenList: TokenList = ;
@@ -116,4 +117,5 @@ export const goerliTokenList: TokenList = {
     }
   ]
 };
+export const getTokenList = getTokenListSrc;
 

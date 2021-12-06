@@ -19,10 +19,13 @@ echo "
  */
 
 import { TokenList } from '@uniswap/token-lists';
+import { getTokenList as getTokenListSrc } from 'src/getTokenList';
 
 // TODO: add this when we have it
 // export const mainnetTokenList: TokenList = $MAINNET_TOKENLIST;
 export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
+export const getTokenList = getTokenListSrc;
 " > src/index.ts
+
 
 tsc --project tsconfig.json
