@@ -1,6 +1,5 @@
+import { TokenInfo, TokenList } from "@uniswap/token-lists";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { TokenList } from "@uniswap/token-lists";
-import fs from "fs";
 import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
 import { getAirdropInfo } from "src/getAirdropInfo";
 import { getCoreVotingInfo } from "src/getCoreVotingInfo";
@@ -11,13 +10,13 @@ import { getOptimisticRewardsVaultInfo } from "src/getOptimisticRewardsVaultInfo
 import { getTimelockInfo } from "src/getTimelock";
 import { getTreasuryInfo } from "src/getTreasuryInfo";
 import { getVotingTokenInfo } from "src/getVotingTokenInfo";
+import { OptimisticsGrantsContractInfo } from "src/types";
 
 export async function getTokenList(
   hre: HardhatRuntimeEnvironment,
   addressesJson: AddressesJsonFile,
-  name: string,
-  outputPath: string
-): Promise<void> {
+  name: string
+): Promise<TokenList> {
   const {
     chainId,
     addresses: {
@@ -79,12 +78,17 @@ export async function getTokenList(
     "Element Optimistic Rewards Vault"
   );
 
-  const optimisticGrantsInfo = await getOptimisticGrantsInfo(
-    hre,
-    chainId,
-    optimisticGrants,
-    "Element Optimistic Grants Vault"
-  );
+  let optimisticGrantsInfo: OptimisticsGrantsContractInfo | undefined;
+  try {
+    optimisticGrantsInfo = await getOptimisticGrantsInfo(
+      hre,
+      chainId,
+      optimisticGrants,
+      "Element Optimistic Grants Vault"
+    );
+  } catch (error) {
+    console.log("error fetching optimisitc grants info", error);
+  }
 
   const airdropInfo = await getAirdropInfo(
     hre,
@@ -128,14 +132,8 @@ export async function getTokenList(
       airdropInfo,
       treasuryInfo,
       timelockInfo,
-    ],
+    ].filter((t): t is TokenInfo => !!t),
   };
 
-  const tokenListString = JSON.stringify(tokenList, null, 2);
-  console.log(tokenListString);
-
-  // TODO: We have to validate this json schema ourselves before it can be
-  // published to the uniswap directory.  For now, just look at this file in
-  // vscode and make sure there are no squiggles.
-  fs.writeFileSync(outputPath, tokenListString);
+  return tokenList;
 }

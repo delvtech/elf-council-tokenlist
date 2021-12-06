@@ -1,5 +1,3 @@
-// This adds ethers to the hre which has dev utilities for local testnet like 'getSigners()'
-import "@nomiclabs/hardhat-waffle";
 // Typechain support for hardhat
 import "@typechain/hardhat";
 // Ethernal plugin - a blockchain / contract explorer for private testnets
@@ -7,6 +5,8 @@ import "hardhat-ethernal";
 // This adds support for typescript paths mappings
 import "tsconfig-paths/register";
 
+// This adds ethers to the hre which has dev utilities for local testnet like 'getSigners()'
+import fs from "fs";
 import { extendEnvironment, HardhatUserConfig, task } from "hardhat/config";
 import { getTokenList } from "src/getTokenList";
 
@@ -34,12 +34,18 @@ task("build-tokenlist", "Builds a council tokenlist for a single chain")
     const { chain } = taskArgs as BuildTaskArgs;
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const addressesJson = require(`src/addresses/${chain}.addresses.json`);
-    getTokenList(
+    const tokenList = await getTokenList(
       hre,
       addressesJson,
-      `Council ${chain} token list`,
-      `src/${chain}.tokenlist.json`
+      `Council ${chain} token list`
     );
+
+    const tokenListString = JSON.stringify(tokenList, null, 2);
+
+    // TODO: We have to validate this json schema ourselves before it can be
+    // published to the uniswap directory.  For now, just look at this file in
+    // vscode and make sure there are no squiggles.
+    fs.writeFileSync(`src/tokenlists/${chain}.tokenlist.json`, tokenListString);
   });
 
 const config: HardhatUserConfig = {
