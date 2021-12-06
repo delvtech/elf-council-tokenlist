@@ -1,4 +1,3 @@
-import "@nomiclabs/hardhat-waffle";
 // Typechain support for hardhat
 import "@typechain/hardhat";
 // Ethernal plugin - a blockchain / contract explorer for private testnets
