@@ -1,5 +1,5 @@
 # MAINNET_TOKENLIST=`cat src/mainnet.tokenlist.json`
-GOERLI_TOKENLIST=`cat src/goerli.tokenlist.json`
+GOERLI_TOKENLIST=`cat src/tokenlists/goerli.tokenlist.json`
 
 echo "
 /**

@@ -34,7 +34,7 @@ task("build-tokenlist", "Builds a council tokenlist for a single chain")
     const { chain } = taskArgs as BuildTaskArgs;
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const addressesJson = require(`src/addresses/${chain}.addresses.json`);
-    const tokenList = getTokenList(
+    const tokenList = await getTokenList(
       hre,
       addressesJson,
       `Council ${chain} token list`
@@ -46,7 +46,7 @@ task("build-tokenlist", "Builds a council tokenlist for a single chain")
     // TODO: We have to validate this json schema ourselves before it can be
     // published to the uniswap directory.  For now, just look at this file in
     // vscode and make sure there are no squiggles.
-    fs.writeFileSync(`src/tokenlists/${chain}.addresses.json`, tokenListString);
+    fs.writeFileSync(`src/tokenlists/${chain}.tokenlist.json`, tokenListString);
   });
 
 const config: HardhatUserConfig = {

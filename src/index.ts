@@ -21,9 +21,9 @@ import { getTokenList as getTokenListSrc } from 'src/getTokenList';
 // TODO: add this when we have it
 // export const mainnetTokenList: TokenList = ;
 export const goerliTokenList: TokenList = {
-  "name": "Council Goerli token list",
+  "name": "Council goerli token list",
   "logoURI": "https://element.fi/logo.svg",
-  "timestamp": "2021-11-15T18:21:42.486Z",
+  "timestamp": "2021-12-06T18:27:33.016Z",
   "version": {
     "major": 0,
     "minor": 1,
@@ -89,6 +89,18 @@ export const goerliTokenList: TokenList = {
     },
     {
       "chainId": 5,
+      "address": "0xf29658584ED4EB1FD22521D5A9437B20c9925dd6",
+      "name": "Element Governance Steering Committee Vault",
+      "decimals": 0,
+      "symbol": "",
+      "extensions": {
+        "coreVoting": "0x43161786d23627C02f7D3AFD20489924b491b009",
+        "votingPowerBound": 500,
+        "idleDuration": 345600
+      }
+    },
+    {
+      "chainId": 5,
       "address": "0x847D90e827a11Da7c124992905CDf1F03F330fA8",
       "name": "Element Optimistic Rewards Vault",
       "decimals": 0,
@@ -105,14 +117,35 @@ export const goerliTokenList: TokenList = {
     },
     {
       "chainId": 5,
-      "address": "0xf29658584ED4EB1FD22521D5A9437B20c9925dd6",
-      "name": "Element Governance Steering Committee Vault",
+      "address": "0x90123455668bA2B12CA76962a88c2e1c20B17F62",
+      "name": "Element Airdrop Contract",
       "decimals": 0,
       "symbol": "",
       "extensions": {
-        "coreVoting": "0x43161786d23627C02f7D3AFD20489924b491b009",
-        "votingPowerBound": 500,
-        "idleDuration": 345600
+        "rewardsRoot": "0x9aafc9b1d8798b80c68d556519e69c64fbe5a4b205bbdccec12375353a1bf784",
+        "lockingVault": "0xFd6e33F5321E5E138ad354F412f7eD9083757dae",
+        "expiration": "9999999999",
+        "token": "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601"
+      }
+    },
+    {
+      "chainId": 5,
+      "address": "0xa465170e7049d1D048ce179Cc0c864d13223a9E2",
+      "name": "Element Treasury",
+      "decimals": 0,
+      "symbol": "",
+      "extensions": {
+        "owner": "0xcF3b7bcBbcEFF836F81f6EAd914706E699267bca"
+      }
+    },
+    {
+      "chainId": 5,
+      "address": "0x73E0C9AdF3E0f5535dA3A0b4265Dd73962643426",
+      "name": "Element Timelock",
+      "decimals": 0,
+      "symbol": "",
+      "extensions": {
+        "waitTime": "1000"
       }
     }
   ]
