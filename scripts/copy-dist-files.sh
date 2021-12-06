@@ -9,3 +9,4 @@ cp compiled/src/types.ts dist
 cp -R src/addresses/*.addresses.json dist
 cp -R src/addresses/*.tokenlist.json dist
 cp src/addresses/AddressesJsonFile.d.ts dist/AddressesJsonFile.d.ts
+cp src/getTokenList dist
