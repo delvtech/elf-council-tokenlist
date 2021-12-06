@@ -21,11 +21,12 @@ echo "
 
 import { TokenList } from '@uniswap/token-lists';
 import { getTokenList as getTokenListSrc } from 'src/getTokenList';
+import { AddressesJsonFile } from 'src/addresses/AddressesJsonFile';
 
 // TODO: add this when we have it
 // export const mainnetTokenList: TokenList = $MAINNET_TOKENLIST;
 export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
-export const goerliAddresses: TokenList = $GOERLI_ADDRESSES;
+export const goerliAddresses: AddressesJsonFile = $GOERLI_ADDRESSES;
 export const getTokenList = getTokenListSrc;
 " > src/index.ts
 

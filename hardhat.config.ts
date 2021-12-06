@@ -41,7 +41,6 @@ task("build-tokenlist", "Builds a council tokenlist for a single chain")
     );
 
     const tokenListString = JSON.stringify(tokenList, null, 2);
-    console.log(tokenListString);
 
     // TODO: We have to validate this json schema ourselves before it can be
     // published to the uniswap directory.  For now, just look at this file in
