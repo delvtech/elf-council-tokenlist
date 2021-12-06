@@ -19,7 +19,13 @@ async function getTokenList(hre, addressesJson, name) {
     const vestingVaultInfo = await (0, getLockingVaultInfo_1.getLockingVaultInfo)(hre, chainId, vestingVault, "Element Vesting Vault");
     const gscVaultInfo = await (0, getGscVaultInfo_1.getGscVaultInfo)(hre, chainId, gscVault, "Element Governance Steering Committee Vault");
     const optimisticRewardsVaultInfo = await (0, getOptimisticRewardsVaultInfo_1.getOptimisticRewardsVaultInfo)(hre, chainId, optimisticRewardsVault, "Element Optimistic Rewards Vault");
-    const optimisticGrantsInfo = await (0, getOptimisticGrantsInfo_1.getOptimisticGrantsInfo)(hre, chainId, optimisticGrants, "Element Optimistic Grants Vault");
+    let optimisticGrantsInfo;
+    try {
+        optimisticGrantsInfo = await (0, getOptimisticGrantsInfo_1.getOptimisticGrantsInfo)(hre, chainId, optimisticGrants, "Element Optimistic Grants Vault");
+    }
+    catch (error) {
+        console.log("error fetching optimisitc grants info", error);
+    }
     const airdropInfo = await (0, getAirdropInfo_1.getAirdropInfo)(hre, chainId, airdrop, "Element Airdrop Contract");
     const treasuryInfo = await (0, getTreasuryInfo_1.getTreasuryInfo)(hre, chainId, treasury, "Element Treasury");
     const timelockInfo = await (0, getTimelock_1.getTimelockInfo)(hre, chainId, timeLock, "Element Timelock");
@@ -44,7 +50,7 @@ async function getTokenList(hre, addressesJson, name) {
             airdropInfo,
             treasuryInfo,
             timelockInfo,
-        ],
+        ].filter((t) => !!t),
     };
     return tokenList;
 }
