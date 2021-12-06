@@ -1,5 +1,6 @@
 # MAINNET_TOKENLIST=`cat src/mainnet.tokenlist.json`
 GOERLI_TOKENLIST=`cat src/tokenlists/goerli.tokenlist.json`
+GOERLI_ADDRESSES=`cat src/addresses/goerli.addresses.json`
 
 echo "
 /**
@@ -24,6 +25,7 @@ import { getTokenList as getTokenListSrc } from 'src/getTokenList';
 // TODO: add this when we have it
 // export const mainnetTokenList: TokenList = $MAINNET_TOKENLIST;
 export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
+export const goerliAddresses: TokenList = $GOERLI_ADDRESSES;
 export const getTokenList = getTokenListSrc;
 " > src/index.ts
 
