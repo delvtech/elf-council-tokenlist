@@ -27,6 +27,7 @@ import { AddressesJsonFile } from 'src/addresses/AddressesJsonFile';
 export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
 export const goerliAddresses: AddressesJsonFile = $GOERLI_ADDRESSES;
 export { getTokenList } from 'src/getTokenList';
+export * from 'src/types';
 
 " > src/index.ts
 

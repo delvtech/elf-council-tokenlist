@@ -1,6 +1,6 @@
 # Copy the modules and types over to dist/
 cp build/src/index.js dist
-cp build/src/types.js dist
+cp build/src/index.d.ts dist
 cp build/src/getTokenList.js dist
 cp build/src/getTokenList.d.ts dist
 
