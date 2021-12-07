@@ -1,8 +1,3 @@
-# MAINNET_TOKENLIST=`cat src/mainnet.tokenlist.json`
-GOERLI_TOKENLIST=`cat src/tokenlists/goerli.tokenlist.json`
-GOERLI_ADDRESSES=`cat src/addresses/goerli.addresses.json`
-
-echo "
 /**
  * 🚨🚨🚨 THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY. 🚨🚨🚨
  * 🚨🚨🚨 THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY. 🚨🚨🚨
@@ -18,18 +13,9 @@ echo "
  * 🚨🚨🚨 THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY. 🚨🚨🚨
  * 🚨🚨🚨 THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY. 🚨🚨🚨
  */
-
 import { TokenList } from '@uniswap/token-lists';
 import { AddressesJsonFile } from 'src/addresses/AddressesJsonFile';
-
-// TODO: add this when we have it
-// export const mainnetTokenList: TokenList = $MAINNET_TOKENLIST;
-export const goerliTokenList: TokenList = $GOERLI_TOKENLIST;
-export const goerliAddresses: AddressesJsonFile = $GOERLI_ADDRESSES;
+export declare const goerliTokenList: TokenList;
+export declare const goerliAddresses: AddressesJsonFile;
 export { getTokenList } from 'src/getTokenList';
 export * from 'src/types';
-
-" > src/index.ts
-
-
-tsc --project tsconfig.json
