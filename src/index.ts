@@ -16,7 +16,6 @@
  */
 
 import { TokenList } from '@uniswap/token-lists';
-import { getTokenList as getTokenListSrc } from 'src/getTokenList';
 import { AddressesJsonFile } from 'src/addresses/AddressesJsonFile';
 
 // TODO: add this when we have it
@@ -24,7 +23,7 @@ import { AddressesJsonFile } from 'src/addresses/AddressesJsonFile';
 export const goerliTokenList: TokenList = {
   "name": "Council goerli token list",
   "logoURI": "https://element.fi/logo.svg",
-  "timestamp": "2021-12-06T18:45:02.121Z",
+  "timestamp": "2021-12-07T12:41:08.526Z",
   "version": {
     "major": 0,
     "minor": 1,
@@ -167,5 +166,6 @@ export const goerliAddresses: AddressesJsonFile = {
   },
   "chainId": 5
 };
-export const getTokenList = getTokenListSrc;
+export { getTokenList } from 'src/getTokenList';
+
 
