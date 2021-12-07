@@ -16,12 +16,13 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTokenList = exports.goerliAddresses = exports.goerliTokenList = void 0;
+const tslib_1 = require("tslib");
 // TODO: add this when we have it
 // export const mainnetTokenList: TokenList = ;
 exports.goerliTokenList = {
     "name": "Council goerli token list",
     "logoURI": "https://element.fi/logo.svg",
-    "timestamp": "2021-12-07T12:41:08.526Z",
+    "timestamp": "2021-12-06T18:45:02.121Z",
     "version": {
         "major": 0,
         "minor": 1,
@@ -166,3 +167,4 @@ exports.goerliAddresses = {
 };
 var getTokenList_1 = require("src/getTokenList");
 Object.defineProperty(exports, "getTokenList", { enumerable: true, get: function () { return getTokenList_1.getTokenList; } });
+(0, tslib_1.__exportStar)(require("src/types"), exports);
