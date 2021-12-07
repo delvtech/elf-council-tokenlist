@@ -2,6 +2,13 @@
   "name": "elf-council-tokenlist",
   "version": "1.0.0",
   "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "_moduleAliases": {
+      "@packname": "build "
+  },
   "dependencies": {
     "@alch/alchemy-web3": "^1.1.7",
     "@ethersproject/providers": "^5.4.0",
