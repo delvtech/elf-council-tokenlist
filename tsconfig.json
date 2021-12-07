@@ -4,6 +4,8 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "declaration": true,
+    "importHelpers": true,
     "strict": true,
     "outDir": "./build/",
     "baseUrl": "./",
@@ -11,9 +13,6 @@
     "paths": {
       "src/*": [
         "./src/*"
-      ],
-      "artifacts/*": [
-        "./artifacts/*"
       ],
       "types/*": [
         "./types/*"
