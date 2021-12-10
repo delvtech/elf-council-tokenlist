@@ -1,7 +1,5 @@
 import typescript from "rollup-plugin-typescript2";
-import babel from "@rollup/plugin-babel";
 import json from "@rollup/plugin-json";
-import { terser } from "rollup-plugin-terser";
 import ttypescript from "ttypescript";
 
 export default [
@@ -9,16 +7,18 @@ export default [
   {
     input: "src/index.ts",
     output: {
-      file: "dist/index.es.js",
+      file: "dist/index.js",
       format: "es",
     },
     plugins: [
+      // rollup-plugin-typescript2 IS the blessed typescript plugin for rollup
       typescript({
-        // transform typescript, needed for transform paths
+        // transform typescript, needed for typescript-transform-paths.  this transforms aliased
+        // imports used in source files to relative imports in dist files.
         typescript: ttypescript,
         tsconfigOverride: {
           compilerOptions: {
-            // hardhat requires commonjs
+            // hardhat requires commonjs, rollup uses esnext
             module: "esnext",
           },
           // don't include hardhat.config.ts
@@ -27,9 +27,13 @@ export default [
         tsconfigDefaults: {
           compilerOptions: {
             plugins: [
-              // transform aliased paths.  source files have a 'src' alias when importing. we need
-              // to remove this for declaration files in dist/
+              // transform aliased paths.  files in src/ use aliased paths.  e.g in src/index.ts, we
+              // import a file like
+              // import { getTokenList } from 'src/getTokenList';
+              // when we create dist files, we need to transform this to
+              // import { getTokenList } from './getTokenList';
               { transform: "typescript-transform-paths" },
+              // do the same transfomrmation for declaration files
               {
                 transform: "typescript-transform-paths",
                 afterDeclarations: true,
@@ -39,28 +43,6 @@ export default [
         },
       }),
       json(),
-      babel({ extensions: [".ts"], babelHelpers: "bundled" }),
-      terser(),
     ],
   },
-  //   // UMD
-  //   {
-  //     input: "src/index.ts",
-  //     output: {
-  //       file: "dist/index.umd.min.js",
-  //       format: "umd",
-  //       name: "Elf Council Tokenlist",
-  //       indent: false,
-  //     },
-  //     plugins: [
-  //       typescript(),
-  //       json(),
-  //       babel({
-  //         extensions: [".ts"],
-  //         exclude: "node_modules/**",
-  //         babelHelpers: "bundled",
-  //       }),
-  //       terser(),
-  //     ],
-  //   },
 ];

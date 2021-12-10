@@ -1,10 +1,10 @@
-import { Provider } from '@ethersproject/abstract-provider';
+import { Provider } from "@ethersproject/abstract-provider";
 import {
   ERC20Permit__factory,
   OptimisticGrants__factory,
-} from 'elf-council-typechain';
-import { formatUnits } from 'ethers/lib/utils';
-import { OptimisticsGrantsContractInfo } from 'src/types';
+} from "elf-council-typechain";
+import { formatUnits } from "ethers/lib/utils";
+import { OptimisticsGrantsContractInfo } from "src/types";
 
 export async function getOptimisticGrantsInfo(
   provider: Provider,
@@ -29,7 +29,7 @@ export async function getOptimisticGrantsInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: '',
+    symbol: "",
     extensions: {
       token,
       solvency: formatUnits(solvency, tokenDecimals),

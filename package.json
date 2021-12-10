@@ -2,8 +2,7 @@
   "name": "elf-council-tokenlist",
   "version": "1.0.0",
   "description": "A uniswap specced tokenlist for elf council contracts",
-  "main": "dist/index.umd.min.js",
-  "module": "dist/index.es.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
