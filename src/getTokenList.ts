@@ -1,16 +1,16 @@
-import { Provider } from '@ethersproject/abstract-provider';
-import { TokenInfo, TokenList } from '@uniswap/token-lists';
-import { AddressesJsonFile } from 'addresses/AddressesJsonFile';
-import { getAirdropInfo } from 'getAirdropInfo';
-import { getCoreVotingInfo } from 'getCoreVotingInfo';
-import { getGscVaultInfo } from 'getGscVaultInfo';
-import { getLockingVaultInfo } from 'getLockingVaultInfo';
-import { getOptimisticGrantsInfo } from 'getOptimisticGrantsInfo';
-import { getOptimisticRewardsVaultInfo } from 'getOptimisticRewardsVaultInfo';
-import { getTimelockInfo } from 'getTimelock';
-import { getTreasuryInfo } from 'getTreasuryInfo';
-import { getVotingTokenInfo } from 'getVotingTokenInfo';
-import { OptimisticsGrantsContractInfo } from 'types';
+import { Provider } from "@ethersproject/abstract-provider";
+import { TokenInfo, TokenList } from "@uniswap/token-lists";
+import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
+import { getAirdropInfo } from "src/getAirdropInfo";
+import { getCoreVotingInfo } from "src/getCoreVotingInfo";
+import { getGscVaultInfo } from "src/getGscVaultInfo";
+import { getLockingVaultInfo } from "src/getLockingVaultInfo";
+import { getOptimisticGrantsInfo } from "src/getOptimisticGrantsInfo";
+import { getOptimisticRewardsVaultInfo } from "src/getOptimisticRewardsVaultInfo";
+import { getTimelockInfo } from "src/getTimelock";
+import { getTreasuryInfo } from "src/getTreasuryInfo";
+import { getVotingTokenInfo } from "src/getVotingTokenInfo";
+import { OptimisticsGrantsContractInfo } from "src/types";
 
 export async function getTokenList(
   provider: Provider,
@@ -44,42 +44,42 @@ export async function getTokenList(
     provider,
     chainId,
     coreVoting,
-    'Element Core Voting Contract'
+    "Element Core Voting Contract"
   );
 
   const gscCoreVotingInfo = await getCoreVotingInfo(
     provider,
     chainId,
     gscCoreVoting,
-    'Element GSC Core Voting Contract'
+    "Element GSC Core Voting Contract"
   );
 
   const lockingVaultInfo = await getLockingVaultInfo(
     provider,
     chainId,
     lockingVault,
-    'Element Locking Vault'
+    "Element Locking Vault"
   );
 
   const vestingVaultInfo = await getLockingVaultInfo(
     provider,
     chainId,
     vestingVault,
-    'Element Vesting Vault'
+    "Element Vesting Vault"
   );
 
   const gscVaultInfo = await getGscVaultInfo(
     provider,
     chainId,
     gscVault,
-    'Element Governance Steering Committee Vault'
+    "Element Governance Steering Committee Vault"
   );
 
   const optimisticRewardsVaultInfo = await getOptimisticRewardsVaultInfo(
     provider,
     chainId,
     optimisticRewardsVault,
-    'Element Optimistic Rewards Vault'
+    "Element Optimistic Rewards Vault"
   );
 
   let optimisticGrantsInfo: OptimisticsGrantsContractInfo | undefined;
@@ -88,36 +88,36 @@ export async function getTokenList(
       provider,
       chainId,
       optimisticGrants,
-      'Element Optimistic Grants Vault'
+      "Element Optimistic Grants Vault"
     );
   } catch (error) {
-    console.log('error fetching optimisitc grants info', error);
+    console.log("error fetching optimisitc grants info", error);
   }
 
   const airdropInfo = await getAirdropInfo(
     provider,
     chainId,
     airdrop,
-    'Element Airdrop Contract'
+    "Element Airdrop Contract"
   );
 
   const treasuryInfo = await getTreasuryInfo(
     provider,
     chainId,
     treasury,
-    'Element Treasury'
+    "Element Treasury"
   );
 
   const timelockInfo = await getTimelockInfo(
     provider,
     chainId,
     timeLock,
-    'Element Timelock'
+    "Element Timelock"
   );
 
   const tokenList: TokenList = {
     name,
-    logoURI: 'https://element.fi/logo.svg',
+    logoURI: "https://element.fi/logo.svg",
     timestamp: new Date().toISOString(),
     version: {
       major: 0,

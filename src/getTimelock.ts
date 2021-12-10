@@ -1,7 +1,7 @@
-import { Provider } from '@ethersproject/abstract-provider';
-import { Timelock__factory } from 'elf-council-typechain';
+import { Provider } from "@ethersproject/abstract-provider";
+import { Timelock__factory } from "elf-council-typechain";
 
-import { TimelockInfo } from './types';
+import { TimelockInfo } from "src/types";
 
 export async function getTimelockInfo(
   provider: Provider,
@@ -18,7 +18,7 @@ export async function getTimelockInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: '',
+    symbol: "",
     extensions: {
       waitTime: waitTime.toString(),
     },

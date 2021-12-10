@@ -1,6 +1,6 @@
-import { Provider } from '@ethersproject/abstract-provider';
-import { Airdrop__factory } from 'elf-council-typechain';
-import { AirdropContractInfo } from 'types';
+import { Provider } from "@ethersproject/abstract-provider";
+import { Airdrop__factory } from "elf-council-typechain";
+import { AirdropContractInfo } from "src/types";
 
 export async function getAirdropInfo(
   provider: Provider,
@@ -27,7 +27,7 @@ export async function getAirdropInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: '',
+    symbol: "",
     extensions: {
       rewardsRoot,
       lockingVault,

@@ -1,7 +1,7 @@
-import { Provider } from '@ethersproject/abstract-provider';
-import { OptimisticRewards__factory } from 'elf-council-typechain';
+import { Provider } from "@ethersproject/abstract-provider";
+import { OptimisticRewards__factory } from "elf-council-typechain";
 
-import { OptimisticRewardsVaultInfo } from './types';
+import { OptimisticRewardsVaultInfo } from "src/types";
 
 export async function getOptimisticRewardsVaultInfo(
   provider: Provider,
@@ -17,7 +17,8 @@ export async function getOptimisticRewardsVaultInfo(
   const pendingRootPromise = optimisticRewardsVaultContract.pendingRoot();
   const proposalTimePromise = optimisticRewardsVaultContract.proposalTime();
   const proposerPromise = optimisticRewardsVaultContract.proposer();
-  const challengePeriodPromise = optimisticRewardsVaultContract.challengePeriod();
+  const challengePeriodPromise =
+    optimisticRewardsVaultContract.challengePeriod();
   const rewardsRootPromise = optimisticRewardsVaultContract.rewardsRoot();
   const lockingVaultPromise = optimisticRewardsVaultContract.lockingVault();
   const tokenPromise = optimisticRewardsVaultContract.token();
@@ -45,7 +46,7 @@ export async function getOptimisticRewardsVaultInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: '',
+    symbol: "",
     extensions: {
       pendingRoot,
       proposalTime: proposalTime.toNumber(),

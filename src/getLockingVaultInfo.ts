@@ -1,7 +1,7 @@
-import { Provider } from '@ethersproject/abstract-provider';
-import { LockingVault__factory } from 'elf-council-typechain';
+import { Provider } from "@ethersproject/abstract-provider";
+import { LockingVault__factory } from "elf-council-typechain";
 
-import { LockingVaultInfo } from './types';
+import { LockingVaultInfo } from "src/types";
 
 export async function getLockingVaultInfo(
   provider: Provider,
@@ -27,7 +27,7 @@ export async function getLockingVaultInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: '',
+    symbol: "",
     extensions: {
       token,
       staleBlockLag: staleBlockLag.toNumber(),

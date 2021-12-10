@@ -1,7 +1,7 @@
-import { Provider } from '@ethersproject/abstract-provider';
-import { GSCVault__factory } from 'elf-council-typechain';
+import { Provider } from "@ethersproject/abstract-provider";
+import { GSCVault__factory } from "elf-council-typechain";
 
-import { GSCVaultInfo } from './types';
+import { GSCVaultInfo } from "src/types";
 
 export async function getGscVaultInfo(
   provider: Provider,
@@ -26,7 +26,7 @@ export async function getGscVaultInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: '',
+    symbol: "",
     extensions: {
       coreVoting,
       votingPowerBound: votingPowerBound.toNumber(),
