@@ -1,15 +1,17 @@
-import { formatUnits } from "ethers/lib/utils";
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { OptimisticsGrantsContractInfo } from "src/types";
-import { ERC20Permit__factory, OptimisticGrants__factory } from "types";
+import { Provider } from '@ethersproject/abstract-provider';
+import {
+  ERC20Permit__factory,
+  OptimisticGrants__factory,
+} from 'elf-council-typechain';
+import { formatUnits } from 'ethers/lib/utils';
+import { OptimisticsGrantsContractInfo } from 'src/types';
 
 export async function getOptimisticGrantsInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<OptimisticsGrantsContractInfo> {
-  const { provider } = hre.ethers;
   const optimisticGrantsContract = OptimisticGrants__factory.connect(
     tokenAddress,
     provider
@@ -27,7 +29,7 @@ export async function getOptimisticGrantsInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: "",
+    symbol: '',
     extensions: {
       token,
       solvency: formatUnits(solvency, tokenDecimals),

@@ -1,15 +1,14 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { OptimisticRewards__factory } from "types";
+import { Provider } from '@ethersproject/abstract-provider';
+import { OptimisticRewards__factory } from 'elf-council-typechain';
 
-import { OptimisticRewardsVaultInfo } from "./types";
+import { OptimisticRewardsVaultInfo } from './types';
 
 export async function getOptimisticRewardsVaultInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<OptimisticRewardsVaultInfo> {
-  const { provider } = hre.ethers;
   const optimisticRewardsVaultContract = OptimisticRewards__factory.connect(
     tokenAddress,
     provider
@@ -18,8 +17,7 @@ export async function getOptimisticRewardsVaultInfo(
   const pendingRootPromise = optimisticRewardsVaultContract.pendingRoot();
   const proposalTimePromise = optimisticRewardsVaultContract.proposalTime();
   const proposerPromise = optimisticRewardsVaultContract.proposer();
-  const challengePeriodPromise =
-    optimisticRewardsVaultContract.challengePeriod();
+  const challengePeriodPromise = optimisticRewardsVaultContract.challengePeriod();
   const rewardsRootPromise = optimisticRewardsVaultContract.rewardsRoot();
   const lockingVaultPromise = optimisticRewardsVaultContract.lockingVault();
   const tokenPromise = optimisticRewardsVaultContract.token();
@@ -47,7 +45,7 @@ export async function getOptimisticRewardsVaultInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: "",
+    symbol: '',
     extensions: {
       pendingRoot,
       proposalTime: proposalTime.toNumber(),

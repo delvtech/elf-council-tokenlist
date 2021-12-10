@@ -1,15 +1,14 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { GSCVault__factory } from "types";
+import { Provider } from '@ethersproject/abstract-provider';
+import { GSCVault__factory } from 'elf-council-typechain';
 
-import { GSCVaultInfo } from "./types";
+import { GSCVaultInfo } from './types';
 
 export async function getGscVaultInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<GSCVaultInfo> {
-  const { provider } = hre.ethers;
   const gscVaultContract = GSCVault__factory.connect(tokenAddress, provider);
 
   const coreVotingPromise = gscVaultContract.coreVoting();
@@ -27,7 +26,7 @@ export async function getGscVaultInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: "",
+    symbol: '',
     extensions: {
       coreVoting,
       votingPowerBound: votingPowerBound.toNumber(),
