@@ -1,3 +1,3 @@
 import { Provider } from "@ethersproject/abstract-provider";
-import { TimelockInfo } from "src/types";
+import { TimelockInfo } from "./types";
 export declare function getTimelockInfo(provider: Provider, chainId: number, tokenAddress: string, name: string): Promise<TimelockInfo>;
