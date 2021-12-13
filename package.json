@@ -6,11 +6,13 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "node_modules/elf-council-typechain"
   ],
   "dependencies": {
     "@ethersproject/providers": "^5.4.0",
-    "@uniswap/token-lists": "^1.0.0-beta.26"
+    "@uniswap/token-lists": "^1.0.0-beta.26",
+    "elf-council-typechain": "git+https://github.com/element-fi/elf-council-typechain.git"
   },
   "peerDependencies": {
     "elf-council-typechain": "git+https://github.com/element-fi/elf-council-typechain.git"
