@@ -4,6 +4,7 @@
   "description": "A uniswap specced tokenlist for elf council contracts",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "files": [
     "dist"
   ],
