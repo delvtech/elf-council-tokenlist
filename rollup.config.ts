@@ -1,3 +1,4 @@
+// rollup-plugin-typescript2 IS the blessed typescript plugin for rollup
 import typescript from "rollup-plugin-typescript2";
 import json from "@rollup/plugin-json";
 import ttypescript from "ttypescript";
@@ -8,10 +9,9 @@ export default [
     input: "src/index.ts",
     output: {
       file: "dist/index.js",
-      format: "es",
+      format: "cjs",
     },
     plugins: [
-      // rollup-plugin-typescript2 IS the blessed typescript plugin for rollup
       typescript({
         // transform typescript, needed for typescript-transform-paths.  this transforms aliased
         // imports used in source files to relative imports in dist files.
