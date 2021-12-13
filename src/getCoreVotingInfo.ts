@@ -1,14 +1,13 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { CoreVotingContractInfo } from "src/types";
-import { CoreVoting__factory } from "types";
+import { Provider } from '@ethersproject/abstract-provider';
+import { CoreVoting__factory } from 'elf-council-typechain';
+import { CoreVotingContractInfo } from 'src/types';
 
 export async function getCoreVotingInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<CoreVotingContractInfo> {
-  const { provider } = hre.ethers;
   const coreVotingContract = CoreVoting__factory.connect(
     tokenAddress,
     provider
@@ -25,7 +24,7 @@ export async function getCoreVotingInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: "",
+    symbol: '',
     extensions: {
       dayInBlocks: dayInBlocks.toNumber(),
       baseQuorum: baseQuorum.toNumber(),

@@ -1,15 +1,14 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { LockingVault__factory } from "types";
+import { Provider } from "@ethersproject/abstract-provider";
+import { LockingVault__factory } from "elf-council-typechain";
 
-import { LockingVaultInfo } from "./types";
+import { LockingVaultInfo } from "src/types";
 
 export async function getLockingVaultInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<LockingVaultInfo> {
-  const { provider } = hre.ethers;
   const lockingVaultContract = LockingVault__factory.connect(
     tokenAddress,
     provider

@@ -1,10 +1,10 @@
-import hre from "hardhat";
-import { VestingVault__factory } from "types";
+import { Provider } from '@ethersproject/abstract-provider';
+import { VestingVault__factory } from 'elf-council-typechain';
 
-import { VestingVaultInfo } from "./types";
+import { VestingVaultInfo } from './types';
 
-export const { provider } = hre.ethers;
 export async function getVestingVaultInfo(
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
@@ -27,7 +27,7 @@ export async function getVestingVaultInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: "",
+    symbol: '',
     extensions: {
       token,
       staleBlockLag: staleBlockLag.toNumber(),

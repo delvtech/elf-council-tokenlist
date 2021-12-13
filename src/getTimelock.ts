@@ -1,15 +1,14 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { Timelock__factory } from "types";
+import { Provider } from "@ethersproject/abstract-provider";
+import { Timelock__factory } from "elf-council-typechain";
 
-import { TimelockInfo } from "./types";
+import { TimelockInfo } from "src/types";
 
 export async function getTimelockInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<TimelockInfo> {
-  const { provider } = hre.ethers;
   const timelockContract = Timelock__factory.connect(tokenAddress, provider);
 
   const waitTime = await timelockContract.waitTime();

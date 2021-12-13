@@ -1,13 +1,12 @@
-import { TokenInfo } from "@uniswap/token-lists";
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { ERC20Permit__factory } from "types/factories/ERC20Permit__factory";
+import { Provider } from '@ethersproject/abstract-provider';
+import { TokenInfo } from '@uniswap/token-lists';
+import { ERC20Permit__factory } from 'elf-council-typechain';
 
 export async function getVotingTokenInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string
 ): Promise<TokenInfo> {
-  const { provider } = hre.ethers;
   const tokenContract = ERC20Permit__factory.connect(tokenAddress, provider);
 
   const name = await tokenContract.name();

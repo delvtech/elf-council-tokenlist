@@ -1,22 +1,11 @@
-// Typechain support for hardhat
-import "@typechain/hardhat";
-// Ethernal plugin - a blockchain / contract explorer for private testnets
-import "hardhat-ethernal";
 // This adds support for typescript paths mappings
+import "@nomiclabs/hardhat-ethers";
 import "tsconfig-paths/register";
 
 // This adds ethers to the hre which has dev utilities for local testnet like 'getSigners()'
 import fs from "fs";
-import { extendEnvironment, HardhatUserConfig, task } from "hardhat/config";
+import { HardhatUserConfig, task } from "hardhat/config";
 import { getTokenList } from "src/getTokenList";
-
-const syncEthernal = Boolean(process.env.SYNC_ETHERNAL);
-extendEnvironment((hre) => {
-  hre.ethernalSync = syncEthernal;
-  hre.ethernalWorkspace = "Hardhat Network";
-  // paid feature, disable for now
-  hre.ethernalTrace = false;
-});
 
 interface BuildTaskArgs {
   chain: "mainnet" | "goerli";
@@ -31,11 +20,12 @@ task("build-tokenlist", "Builds a council tokenlist for a single chain")
     false
   )
   .setAction(async (taskArgs, hre) => {
+    const { provider } = hre.ethers;
     const { chain } = taskArgs as BuildTaskArgs;
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const addressesJson = require(`src/addresses/${chain}.addresses.json`);
     const tokenList = await getTokenList(
-      hre,
+      provider,
       addressesJson,
       `Council ${chain} token list`
     );
@@ -74,10 +64,6 @@ const config: HardhatUserConfig = {
         },
       },
     ],
-  },
-  typechain: {
-    outDir: "types",
-    target: "ethers-v5",
   },
   mocha: { timeout: 0 },
   networks: {

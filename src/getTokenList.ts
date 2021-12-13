@@ -1,5 +1,5 @@
+import { Provider } from "@ethersproject/abstract-provider";
 import { TokenInfo, TokenList } from "@uniswap/token-lists";
-import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
 import { getAirdropInfo } from "src/getAirdropInfo";
 import { getCoreVotingInfo } from "src/getCoreVotingInfo";
@@ -13,7 +13,7 @@ import { getVotingTokenInfo } from "src/getVotingTokenInfo";
 import { OptimisticsGrantsContractInfo } from "src/types";
 
 export async function getTokenList(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   addressesJson: AddressesJsonFile,
   name: string
 ): Promise<TokenList> {
@@ -34,45 +34,49 @@ export async function getTokenList(
     },
   } = addressesJson;
 
-  const elementTokenInfo = await getVotingTokenInfo(hre, chainId, elementToken);
+  const elementTokenInfo = await getVotingTokenInfo(
+    provider,
+    chainId,
+    elementToken
+  );
 
   const coreVotingInfo = await getCoreVotingInfo(
-    hre,
+    provider,
     chainId,
     coreVoting,
     "Element Core Voting Contract"
   );
 
   const gscCoreVotingInfo = await getCoreVotingInfo(
-    hre,
+    provider,
     chainId,
     gscCoreVoting,
     "Element GSC Core Voting Contract"
   );
 
   const lockingVaultInfo = await getLockingVaultInfo(
-    hre,
+    provider,
     chainId,
     lockingVault,
     "Element Locking Vault"
   );
 
   const vestingVaultInfo = await getLockingVaultInfo(
-    hre,
+    provider,
     chainId,
     vestingVault,
     "Element Vesting Vault"
   );
 
   const gscVaultInfo = await getGscVaultInfo(
-    hre,
+    provider,
     chainId,
     gscVault,
     "Element Governance Steering Committee Vault"
   );
 
   const optimisticRewardsVaultInfo = await getOptimisticRewardsVaultInfo(
-    hre,
+    provider,
     chainId,
     optimisticRewardsVault,
     "Element Optimistic Rewards Vault"
@@ -81,7 +85,7 @@ export async function getTokenList(
   let optimisticGrantsInfo: OptimisticsGrantsContractInfo | undefined;
   try {
     optimisticGrantsInfo = await getOptimisticGrantsInfo(
-      hre,
+      provider,
       chainId,
       optimisticGrants,
       "Element Optimistic Grants Vault"
@@ -91,21 +95,21 @@ export async function getTokenList(
   }
 
   const airdropInfo = await getAirdropInfo(
-    hre,
+    provider,
     chainId,
     airdrop,
     "Element Airdrop Contract"
   );
 
   const treasuryInfo = await getTreasuryInfo(
-    hre,
+    provider,
     chainId,
     treasury,
     "Element Treasury"
   );
 
   const timelockInfo = await getTimelockInfo(
-    hre,
+    provider,
     chainId,
     timeLock,
     "Element Timelock"

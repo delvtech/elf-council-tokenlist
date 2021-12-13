@@ -1,15 +1,13 @@
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { Airdrop__factory } from "types";
-
-import { AirdropContractInfo } from "./types";
+import { Provider } from "@ethersproject/abstract-provider";
+import { Airdrop__factory } from "elf-council-typechain";
+import { AirdropContractInfo } from "src/types";
 
 export async function getAirdropInfo(
-  hre: HardhatRuntimeEnvironment,
+  provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
 ): Promise<AirdropContractInfo> {
-  const { provider } = hre.ethers;
   const airdropContract = Airdrop__factory.connect(tokenAddress, provider);
 
   const rewardsRootPromise = airdropContract.rewardsRoot();
