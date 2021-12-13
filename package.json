@@ -12,6 +12,9 @@
     "@uniswap/token-lists": "^1.0.0-beta.26",
     "elf-council-typechain": "git+https://github.com/element-fi/elf-council-typechain.git"
   },
+  "peerDependencies": {
+    "elf-council-typechain": "git+https://github.com/element-fi/elf-council-typechain.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
