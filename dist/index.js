@@ -369,10 +369,16 @@ async function getTokenList(provider, addressesJson, name) {
         optimisticGrantsInfo = await getOptimisticGrantsInfo(provider, chainId, optimisticGrants, "Element Optimistic Grants Vault");
     }
     catch (error) {
-        console.log("error fetching optimisitc grants info", error);
+        console.log("error fetching optimistic grants info", error);
     }
     const airdropInfo = await getAirdropInfo(provider, chainId, airdrop, "Element Airdrop Contract");
-    const treasuryInfo = await getTreasuryInfo(provider, chainId, treasury, "Element Treasury");
+    let treasuryInfo;
+    try {
+        treasuryInfo = await getTreasuryInfo(provider, chainId, treasury, "Element Treasury");
+    }
+    catch (error) {
+        console.log("error fetching treasury info", error);
+    }
     const timelockInfo = await getTimelockInfo(provider, chainId, timeLock, "Element Timelock");
     const tokenList = {
         name,

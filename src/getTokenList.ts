@@ -1,3 +1,4 @@
+import { TreasuryInfo } from "./types";
 import { Provider } from "@ethersproject/abstract-provider";
 import { TokenInfo, TokenList } from "@uniswap/token-lists";
 import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
@@ -91,7 +92,7 @@ export async function getTokenList(
       "Element Optimistic Grants Vault"
     );
   } catch (error) {
-    console.log("error fetching optimisitc grants info", error);
+    console.log("error fetching optimistic grants info", error);
   }
 
   const airdropInfo = await getAirdropInfo(
@@ -101,12 +102,17 @@ export async function getTokenList(
     "Element Airdrop Contract"
   );
 
-  const treasuryInfo = await getTreasuryInfo(
-    provider,
-    chainId,
-    treasury,
-    "Element Treasury"
-  );
+  let treasuryInfo: TreasuryInfo | undefined;
+  try {
+    treasuryInfo = await getTreasuryInfo(
+      provider,
+      chainId,
+      treasury,
+      "Element Treasury"
+    );
+  } catch (error) {
+    console.log("error fetching treasury info", error);
+  }
 
   const timelockInfo = await getTimelockInfo(
     provider,
