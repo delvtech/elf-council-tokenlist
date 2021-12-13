@@ -1,9 +1,5 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var elfCouncilTypechain = require('elf-council-typechain');
-var utils = require('ethers/lib/utils');
+import { Airdrop__factory, CoreVoting__factory, GSCVault__factory, LockingVault__factory, OptimisticGrants__factory, ERC20Permit__factory, OptimisticRewards__factory, Timelock__factory, Treasury__factory } from 'elf-council-typechain';
+import { formatUnits } from 'ethers/lib/utils';
 
 var addresses = {
 	airdrop: "0x90123455668bA2B12CA76962a88c2e1c20B17F62",
@@ -161,7 +157,7 @@ var goerliTokenListJson = {
 };
 
 async function getAirdropInfo(provider, chainId, tokenAddress, name) {
-    const airdropContract = elfCouncilTypechain.Airdrop__factory.connect(tokenAddress, provider);
+    const airdropContract = Airdrop__factory.connect(tokenAddress, provider);
     const rewardsRootPromise = airdropContract.rewardsRoot();
     const lockingVaultPromise = airdropContract.lockingVault();
     const expirationPromise = airdropContract.expiration();
@@ -188,7 +184,7 @@ async function getAirdropInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getCoreVotingInfo(provider, chainId, tokenAddress, name) {
-    const coreVotingContract = elfCouncilTypechain.CoreVoting__factory.connect(tokenAddress, provider);
+    const coreVotingContract = CoreVoting__factory.connect(tokenAddress, provider);
     const baseQuorum = await coreVotingContract.baseQuorum();
     const lockDuration = await coreVotingContract.lockDuration();
     const minProposalPower = await coreVotingContract.minProposalPower();
@@ -211,7 +207,7 @@ async function getCoreVotingInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getGscVaultInfo(provider, chainId, tokenAddress, name) {
-    const gscVaultContract = elfCouncilTypechain.GSCVault__factory.connect(tokenAddress, provider);
+    const gscVaultContract = GSCVault__factory.connect(tokenAddress, provider);
     const coreVotingPromise = gscVaultContract.coreVoting();
     const votingPowerBoundPromise = gscVaultContract.votingPowerBound();
     const idleDurationPromise = gscVaultContract.idleDuration();
@@ -235,7 +231,7 @@ async function getGscVaultInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getLockingVaultInfo(provider, chainId, tokenAddress, name) {
-    const lockingVaultContract = elfCouncilTypechain.LockingVault__factory.connect(tokenAddress, provider);
+    const lockingVaultContract = LockingVault__factory.connect(tokenAddress, provider);
     const tokenPromise = lockingVaultContract.token();
     const staleBlockLagPromise = lockingVaultContract.staleBlockLag();
     const [token, staleBlockLag] = await Promise.all([
@@ -256,11 +252,11 @@ async function getLockingVaultInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getOptimisticGrantsInfo(provider, chainId, tokenAddress, name) {
-    const optimisticGrantsContract = elfCouncilTypechain.OptimisticGrants__factory.connect(tokenAddress, provider);
+    const optimisticGrantsContract = OptimisticGrants__factory.connect(tokenAddress, provider);
     const tokenPromise = optimisticGrantsContract.token();
     const solvencyPromise = optimisticGrantsContract.solvency();
     const [token, solvency] = await Promise.all([tokenPromise, solvencyPromise]);
-    const tokenContract = elfCouncilTypechain.ERC20Permit__factory.connect(tokenAddress, provider);
+    const tokenContract = ERC20Permit__factory.connect(tokenAddress, provider);
     const tokenDecimals = await tokenContract.decimals();
     return {
         chainId,
@@ -270,13 +266,13 @@ async function getOptimisticGrantsInfo(provider, chainId, tokenAddress, name) {
         symbol: "",
         extensions: {
             token,
-            solvency: utils.formatUnits(solvency, tokenDecimals),
+            solvency: formatUnits(solvency, tokenDecimals),
         },
     };
 }
 
 async function getOptimisticRewardsVaultInfo(provider, chainId, tokenAddress, name) {
-    const optimisticRewardsVaultContract = elfCouncilTypechain.OptimisticRewards__factory.connect(tokenAddress, provider);
+    const optimisticRewardsVaultContract = OptimisticRewards__factory.connect(tokenAddress, provider);
     const pendingRootPromise = optimisticRewardsVaultContract.pendingRoot();
     const proposalTimePromise = optimisticRewardsVaultContract.proposalTime();
     const proposerPromise = optimisticRewardsVaultContract.proposer();
@@ -312,7 +308,7 @@ async function getOptimisticRewardsVaultInfo(provider, chainId, tokenAddress, na
 }
 
 async function getTimelockInfo(provider, chainId, tokenAddress, name) {
-    const timelockContract = elfCouncilTypechain.Timelock__factory.connect(tokenAddress, provider);
+    const timelockContract = Timelock__factory.connect(tokenAddress, provider);
     const waitTime = await timelockContract.waitTime();
     return {
         chainId,
@@ -327,7 +323,7 @@ async function getTimelockInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getTreasuryInfo(provider, chainId, tokenAddress, name) {
-    const treasuryContract = elfCouncilTypechain.Treasury__factory.connect(tokenAddress, provider);
+    const treasuryContract = Treasury__factory.connect(tokenAddress, provider);
     const owner = await treasuryContract.owner();
     return {
         chainId,
@@ -342,7 +338,7 @@ async function getTreasuryInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getVotingTokenInfo(provider, chainId, tokenAddress) {
-    const tokenContract = elfCouncilTypechain.ERC20Permit__factory.connect(tokenAddress, provider);
+    const tokenContract = ERC20Permit__factory.connect(tokenAddress, provider);
     const name = await tokenContract.name();
     const symbol = await tokenContract.symbol();
     const decimals = await tokenContract.decimals();
@@ -403,6 +399,4 @@ async function getTokenList(provider, addressesJson, name) {
 const goerliTokenList = goerliTokenListJson;
 const goerliAddressList = goerliAddressListJson;
 
-exports.getTokenList = getTokenList;
-exports.goerliAddressList = goerliAddressList;
-exports.goerliTokenList = goerliTokenList;
+export { getTokenList, goerliAddressList, goerliTokenList };
