@@ -1,6 +1,6 @@
+import json from "@rollup/plugin-json";
 // rollup-plugin-typescript2 IS the blessed typescript plugin for rollup
 import typescript from "rollup-plugin-typescript2";
-import json from "@rollup/plugin-json";
 import ttypescript from "ttypescript";
 
 export default [
