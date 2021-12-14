@@ -3,20 +3,23 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var elfCouncilTypechain = require('elf-council-typechain');
+var ethers = require('ethers');
 var utils = require('ethers/lib/utils');
 
 var addresses = {
 	airdrop: "0x90123455668bA2B12CA76962a88c2e1c20B17F62",
-	coreVoting: "0x5264a36f4839F45d753701B5BDFc66c3f4ad2F96",
-	elementToken: "0xa7E598Ab2c0df4A55feBFDD32ee6Cc64d2aE54eA",
-	gscCoreVoting: "0x43161786d23627C02f7D3AFD20489924b491b009",
-	gscVault: "0xf29658584ED4EB1FD22521D5A9437B20c9925dd6",
-	lockingVault: "0xeA1f4ec61FEe5a7A6EC1A323e1d042282068a4d9",
-	optimisticGrants: "0x2e25d3bfACF854c9b80f4A5A66ca0C32950f6c6d",
-	optimisticRewardsVault: "0x847D90e827a11Da7c124992905CDf1F03F330fA8",
-	timeLock: "0x73E0C9AdF3E0f5535dA3A0b4265Dd73962643426",
-	treasury: "0xa465170e7049d1D048ce179Cc0c864d13223a9E2",
-	vestingVault: "0x40E10a6C50b2Cf77a804aA9e32D69aEc919E3765"
+	coreVoting: "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
+	elementToken: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
+	gscCoreVoting: "0x600c4926c9F88beCE3533ceaAA36804d6E23F1c1",
+	gscVault: "0x0A575bFA79454112c37B9Af2a6362c9c68f7d2e3",
+	lockingVault: "0xb5E8AF575Ee302A24c6C7746a99D895BeF67cb5D",
+	nonFungibleVotingVault: "0x9eE5f603D8dCFbdF06f23aE0960F704b85F12fAb",
+	optimisticGrants: "0x092B49777CB45dc4939FBc4029ce7a116D63D29D",
+	optimisticRewardsVault: "0x0000000000000000000000000000000000000000",
+	spender: "0x722289C399e6f4AbCE80FaFbABC9a9876432834C",
+	timeLock: "0x850f854e191fA84375c10D43f9E2a68c46579a23",
+	treasury: "0x554fD1BF502C2D758bE72C211D9E3a596c579335",
+	vestingVault: "0xe69D2F8DeD2924e0845118E7E467Fc97F7994ef6"
 };
 var chainId = 5;
 var goerliAddressListJson = {
@@ -161,6 +164,10 @@ var goerliTokenListJson = {
 };
 
 async function getAirdropInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const airdropContract = elfCouncilTypechain.Airdrop__factory.connect(tokenAddress, provider);
     const rewardsRootPromise = airdropContract.rewardsRoot();
     const lockingVaultPromise = airdropContract.lockingVault();
@@ -188,6 +195,10 @@ async function getAirdropInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getCoreVotingInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const coreVotingContract = elfCouncilTypechain.CoreVoting__factory.connect(tokenAddress, provider);
     const baseQuorum = await coreVotingContract.baseQuorum();
     const lockDuration = await coreVotingContract.lockDuration();
@@ -199,7 +210,7 @@ async function getCoreVotingInfo(provider, chainId, tokenAddress, name) {
         address: tokenAddress,
         name,
         decimals: 0,
-        symbol: '',
+        symbol: "",
         extensions: {
             dayInBlocks: dayInBlocks.toNumber(),
             baseQuorum: baseQuorum.toNumber(),
@@ -211,6 +222,10 @@ async function getCoreVotingInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getGscVaultInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const gscVaultContract = elfCouncilTypechain.GSCVault__factory.connect(tokenAddress, provider);
     const coreVotingPromise = gscVaultContract.coreVoting();
     const votingPowerBoundPromise = gscVaultContract.votingPowerBound();
@@ -235,6 +250,10 @@ async function getGscVaultInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getLockingVaultInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const lockingVaultContract = elfCouncilTypechain.LockingVault__factory.connect(tokenAddress, provider);
     const tokenPromise = lockingVaultContract.token();
     const staleBlockLagPromise = lockingVaultContract.staleBlockLag();
@@ -256,6 +275,10 @@ async function getLockingVaultInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getOptimisticGrantsInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const optimisticGrantsContract = elfCouncilTypechain.OptimisticGrants__factory.connect(tokenAddress, provider);
     const tokenPromise = optimisticGrantsContract.token();
     const solvencyPromise = optimisticGrantsContract.solvency();
@@ -276,6 +299,10 @@ async function getOptimisticGrantsInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getOptimisticRewardsVaultInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const optimisticRewardsVaultContract = elfCouncilTypechain.OptimisticRewards__factory.connect(tokenAddress, provider);
     const pendingRootPromise = optimisticRewardsVaultContract.pendingRoot();
     const proposalTimePromise = optimisticRewardsVaultContract.proposalTime();
@@ -312,6 +339,10 @@ async function getOptimisticRewardsVaultInfo(provider, chainId, tokenAddress, na
 }
 
 async function getTimelockInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const timelockContract = elfCouncilTypechain.Timelock__factory.connect(tokenAddress, provider);
     const waitTime = await timelockContract.waitTime();
     return {
@@ -327,6 +358,10 @@ async function getTimelockInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getTreasuryInfo(provider, chainId, tokenAddress, name) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for ", name, tokenAddress);
+        return;
+    }
     const treasuryContract = elfCouncilTypechain.Treasury__factory.connect(tokenAddress, provider);
     const owner = await treasuryContract.owner();
     return {
@@ -334,7 +369,7 @@ async function getTreasuryInfo(provider, chainId, tokenAddress, name) {
         address: tokenAddress,
         name,
         decimals: 0,
-        symbol: '',
+        symbol: "",
         extensions: {
             owner,
         },
@@ -342,6 +377,10 @@ async function getTreasuryInfo(provider, chainId, tokenAddress, name) {
 }
 
 async function getVotingTokenInfo(provider, chainId, tokenAddress) {
+    if (!tokenAddress || tokenAddress === ethers.ethers.constants.AddressZero) {
+        console.error("Invavlid Token Address for Voting Token", tokenAddress);
+        return;
+    }
     const tokenContract = elfCouncilTypechain.ERC20Permit__factory.connect(tokenAddress, provider);
     const name = await tokenContract.name();
     const symbol = await tokenContract.symbol();
@@ -356,7 +395,7 @@ async function getVotingTokenInfo(provider, chainId, tokenAddress) {
 }
 
 async function getTokenList(provider, addressesJson, name) {
-    const { chainId, addresses: { elementToken, coreVoting, gscCoreVoting, timeLock, lockingVault, vestingVault, optimisticRewardsVault, airdrop, optimisticGrants, treasury, gscVault, }, } = addressesJson;
+    const { chainId, addresses: { elementToken, coreVoting, gscCoreVoting, timeLock, lockingVault, vestingVault, optimisticRewardsVault, nonFungibleVotingVault, airdrop, optimisticGrants, treasury, gscVault, }, } = addressesJson;
     const elementTokenInfo = await getVotingTokenInfo(provider, chainId, elementToken);
     const coreVotingInfo = await getCoreVotingInfo(provider, chainId, coreVoting, "Element Core Voting Contract");
     const gscCoreVotingInfo = await getCoreVotingInfo(provider, chainId, gscCoreVoting, "Element GSC Core Voting Contract");
@@ -364,6 +403,7 @@ async function getTokenList(provider, addressesJson, name) {
     const vestingVaultInfo = await getLockingVaultInfo(provider, chainId, vestingVault, "Element Vesting Vault");
     const gscVaultInfo = await getGscVaultInfo(provider, chainId, gscVault, "Element Governance Steering Committee Vault");
     const optimisticRewardsVaultInfo = await getOptimisticRewardsVaultInfo(provider, chainId, optimisticRewardsVault, "Element Optimistic Rewards Vault");
+    const nonFungibleVotingVaultInfo = await getOptimisticRewardsVaultInfo(provider, chainId, nonFungibleVotingVault, "Element Non Fungible Voting Vault");
     let optimisticGrantsInfo;
     try {
         optimisticGrantsInfo = await getOptimisticGrantsInfo(provider, chainId, optimisticGrants, "Element Optimistic Grants Vault");
@@ -397,6 +437,7 @@ async function getTokenList(provider, addressesJson, name) {
             vestingVaultInfo,
             gscVaultInfo,
             optimisticRewardsVaultInfo,
+            nonFungibleVotingVaultInfo,
             optimisticGrantsInfo,
             airdropInfo,
             treasuryInfo,
