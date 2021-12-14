@@ -11,3 +11,4 @@ export const goerliAddressList: AddressesJsonFile = goerliAddressListJson;
 export { getTokenList } from "src/getTokenList";
 
 export * from "src/types";
+export * from "src/addresses/AddressesJsonFile";

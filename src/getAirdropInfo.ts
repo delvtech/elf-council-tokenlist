@@ -1,5 +1,6 @@
 import { Provider } from "@ethersproject/abstract-provider";
 import { Airdrop__factory } from "elf-council-typechain";
+import { ethers } from "ethers";
 import { AirdropContractInfo } from "src/types";
 
 export async function getAirdropInfo(
@@ -7,7 +8,11 @@ export async function getAirdropInfo(
   chainId: number,
   tokenAddress: string,
   name: string
-): Promise<AirdropContractInfo> {
+): Promise<AirdropContractInfo | undefined> {
+  if (!tokenAddress || tokenAddress === ethers.constants.AddressZero) {
+    console.error("Invavlid Token Address for ", name, tokenAddress);
+    return;
+  }
   const airdropContract = Airdrop__factory.connect(tokenAddress, provider);
 
   const rewardsRootPromise = airdropContract.rewardsRoot();

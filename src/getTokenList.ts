@@ -28,6 +28,7 @@ export async function getTokenList(
       lockingVault,
       vestingVault,
       optimisticRewardsVault,
+      nonFungibleVotingVault,
       airdrop,
       optimisticGrants,
       treasury,
@@ -81,6 +82,13 @@ export async function getTokenList(
     chainId,
     optimisticRewardsVault,
     "Element Optimistic Rewards Vault"
+  );
+
+  const nonFungibleVotingVaultInfo = await getOptimisticRewardsVaultInfo(
+    provider,
+    chainId,
+    nonFungibleVotingVault,
+    "Element Non Fungible Voting Vault"
   );
 
   let optimisticGrantsInfo: OptimisticsGrantsContractInfo | undefined;
@@ -138,6 +146,7 @@ export async function getTokenList(
       vestingVaultInfo,
       gscVaultInfo,
       optimisticRewardsVaultInfo,
+      nonFungibleVotingVaultInfo,
       optimisticGrantsInfo,
       airdropInfo,
       treasuryInfo,

@@ -1,13 +1,19 @@
-import { Provider } from '@ethersproject/abstract-provider';
-import { CoreVoting__factory } from 'elf-council-typechain';
-import { CoreVotingContractInfo } from 'src/types';
+import { Provider } from "@ethersproject/abstract-provider";
+import { CoreVoting__factory } from "elf-council-typechain";
+import { ethers } from "ethers";
+import { CoreVotingContractInfo } from "src/types";
 
 export async function getCoreVotingInfo(
   provider: Provider,
   chainId: number,
   tokenAddress: string,
   name: string
-): Promise<CoreVotingContractInfo> {
+): Promise<CoreVotingContractInfo | undefined> {
+  if (!tokenAddress || tokenAddress === ethers.constants.AddressZero) {
+    console.error("Invavlid Token Address for ", name, tokenAddress);
+    return;
+  }
+
   const coreVotingContract = CoreVoting__factory.connect(
     tokenAddress,
     provider
@@ -24,7 +30,7 @@ export async function getCoreVotingInfo(
     address: tokenAddress,
     name,
     decimals: 0,
-    symbol: '',
+    symbol: "",
     extensions: {
       dayInBlocks: dayInBlocks.toNumber(),
       baseQuorum: baseQuorum.toNumber(),
