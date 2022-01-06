@@ -1,6 +1,7 @@
 import { Provider } from "@ethersproject/abstract-provider";
 import { CoreVoting__factory } from "elf-council-typechain";
 import { ethers } from "ethers";
+import { formatEther } from "ethers/lib/utils";
 import { CoreVotingContractInfo } from "src/types";
 
 export async function getCoreVotingInfo(
@@ -33,7 +34,7 @@ export async function getCoreVotingInfo(
     symbol: "",
     extensions: {
       dayInBlocks: dayInBlocks.toNumber(),
-      baseQuorum: baseQuorum.toNumber(),
+      baseQuorum: formatEther(baseQuorum),
       lockDuration: lockDuration.toNumber(),
       minProposalPower: minProposalPower.toNumber(),
       extraVoteTime: extraVoteTime.toNumber(),

@@ -17,7 +17,7 @@ export interface AirdropContractInfo extends TokenInfo {
 export interface CoreVotingContractInfo extends TokenInfo {
   extensions: {
     dayInBlocks: number;
-    baseQuorum: number;
+    baseQuorum: string;
     lockDuration: number;
     minProposalPower: number;
     extraVoteTime: number;
