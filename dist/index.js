@@ -213,7 +213,7 @@ async function getCoreVotingInfo(provider, chainId, tokenAddress, name) {
         symbol: "",
         extensions: {
             dayInBlocks: dayInBlocks.toNumber(),
-            baseQuorum: baseQuorum.toNumber(),
+            baseQuorum: utils.formatEther(baseQuorum),
             lockDuration: lockDuration.toNumber(),
             minProposalPower: minProposalPower.toNumber(),
             extraVoteTime: extraVoteTime.toNumber(),
