@@ -36,7 +36,7 @@ export async function getCoreVotingInfo(
       dayInBlocks: dayInBlocks.toNumber(),
       baseQuorum: formatEther(baseQuorum),
       lockDuration: lockDuration.toNumber(),
-      minProposalPower: minProposalPower.toNumber(),
+      minProposalPower: formatEther(minProposalPower),
       extraVoteTime: extraVoteTime.toNumber(),
     },
   };

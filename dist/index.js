@@ -29,7 +29,7 @@ var goerliAddressListJson = {
 
 var name = "Council goerli token list";
 var logoURI = "https://element.fi/logo.svg";
-var timestamp = "2021-12-06T18:45:02.121Z";
+var timestamp = "2022-01-06T17:43:00.739Z";
 var version = {
 	major: 0,
 	minor: 1,
@@ -38,87 +38,87 @@ var version = {
 var tokens = [
 	{
 		chainId: 5,
-		address: "0xa7E598Ab2c0df4A55feBFDD32ee6Cc64d2aE54eA",
-		symbol: "ttk",
+		address: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
+		symbol: "🧝",
 		decimals: 18,
-		name: "testtoken"
+		name: "Definitely Not Element Token"
 	},
 	{
 		chainId: 5,
-		address: "0x5264a36f4839F45d753701B5BDFc66c3f4ad2F96",
+		address: "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
 		name: "Element Core Voting Contract",
 		decimals: 0,
 		symbol: "",
 		extensions: {
 			dayInBlocks: 6496,
-			baseQuorum: 10000,
+			baseQuorum: "100000.0",
 			lockDuration: 19488,
-			minProposalPower: 500,
+			minProposalPower: "10000.0",
 			extraVoteTime: 32480
 		}
 	},
 	{
 		chainId: 5,
-		address: "0x43161786d23627C02f7D3AFD20489924b491b009",
+		address: "0x600c4926c9F88beCE3533ceaAA36804d6E23F1c1",
 		name: "Element GSC Core Voting Contract",
 		decimals: 0,
 		symbol: "",
 		extensions: {
 			dayInBlocks: 6496,
-			baseQuorum: 5,
+			baseQuorum: "0.000000000000000001",
 			lockDuration: 19488,
-			minProposalPower: 1,
+			minProposalPower: "0.000000000000000001",
 			extraVoteTime: 32480
 		}
 	},
 	{
 		chainId: 5,
-		address: "0xeA1f4ec61FEe5a7A6EC1A323e1d042282068a4d9",
+		address: "0xb5E8AF575Ee302A24c6C7746a99D895BeF67cb5D",
 		name: "Element Locking Vault",
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			token: "0xa7E598Ab2c0df4A55feBFDD32ee6Cc64d2aE54eA",
-			staleBlockLag: 100000000
+			token: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
+			staleBlockLag: 30000
 		}
 	},
 	{
 		chainId: 5,
-		address: "0x40E10a6C50b2Cf77a804aA9e32D69aEc919E3765",
+		address: "0xe69D2F8DeD2924e0845118E7E467Fc97F7994ef6",
 		name: "Element Vesting Vault",
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			token: "0xa7E598Ab2c0df4A55feBFDD32ee6Cc64d2aE54eA",
-			staleBlockLag: 100000000
+			token: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
+			staleBlockLag: 20000
 		}
 	},
 	{
 		chainId: 5,
-		address: "0xf29658584ED4EB1FD22521D5A9437B20c9925dd6",
+		address: "0x0A575bFA79454112c37B9Af2a6362c9c68f7d2e3",
 		name: "Element Governance Steering Committee Vault",
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			coreVoting: "0x43161786d23627C02f7D3AFD20489924b491b009",
-			votingPowerBound: 500,
-			idleDuration: 345600
+			coreVoting: "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
+			votingPowerBound: "100000000000000000000000",
+			idleDuration: "345600"
 		}
 	},
 	{
 		chainId: 5,
-		address: "0x847D90e827a11Da7c124992905CDf1F03F330fA8",
-		name: "Element Optimistic Rewards Vault",
+		address: "0x9eE5f603D8dCFbdF06f23aE0960F704b85F12fAb",
+		name: "Element Non Fungible Voting Vault",
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			pendingRoot: "0x0000000000000000000000000000000000000000000000000000000000000000",
-			proposalTime: 0,
+			pendingRoot: "0x29a76ced28d03a64f71f30eb01dc9b622e43a8bd39e276d9b2a7c1ca0185fe34",
+			proposalTime: 1637006351,
 			proposer: "0xcF3b7bcBbcEFF836F81f6EAd914706E699267bca",
-			challengePeriod: 604800,
-			rewardsRoot: "0xb3bc27033f96d4ab101b807a06fef330523d308e202f9733d748412c008251aa",
-			lockingVault: "0xA0bfb97aC29Fc4034db52F8783efdaA25A070E1B",
-			token: "0xa7E598Ab2c0df4A55feBFDD32ee6Cc64d2aE54eA"
+			challengePeriod: 0,
+			rewardsRoot: "0x29a76ced28d03a64f71f30eb01dc9b622e43a8bd39e276d9b2a7c1ca0185fe34",
+			lockingVault: "0xFd6e33F5321E5E138ad354F412f7eD9083757dae",
+			token: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601"
 		}
 	},
 	{
@@ -136,17 +136,17 @@ var tokens = [
 	},
 	{
 		chainId: 5,
-		address: "0xa465170e7049d1D048ce179Cc0c864d13223a9E2",
+		address: "0x554fD1BF502C2D758bE72C211D9E3a596c579335",
 		name: "Element Treasury",
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			owner: "0xcF3b7bcBbcEFF836F81f6EAd914706E699267bca"
+			owner: "0x850f854e191fA84375c10D43f9E2a68c46579a23"
 		}
 	},
 	{
 		chainId: 5,
-		address: "0x73E0C9AdF3E0f5535dA3A0b4265Dd73962643426",
+		address: "0x850f854e191fA84375c10D43f9E2a68c46579a23",
 		name: "Element Timelock",
 		decimals: 0,
 		symbol: "",
@@ -215,7 +215,7 @@ async function getCoreVotingInfo(provider, chainId, tokenAddress, name) {
             dayInBlocks: dayInBlocks.toNumber(),
             baseQuorum: utils.formatEther(baseQuorum),
             lockDuration: lockDuration.toNumber(),
-            minProposalPower: minProposalPower.toNumber(),
+            minProposalPower: utils.formatEther(minProposalPower),
             extraVoteTime: extraVoteTime.toNumber(),
         },
     };
@@ -243,8 +243,8 @@ async function getGscVaultInfo(provider, chainId, tokenAddress, name) {
         symbol: "",
         extensions: {
             coreVoting,
-            votingPowerBound: votingPowerBound.toNumber(),
-            idleDuration: idleDuration.toNumber(),
+            votingPowerBound: votingPowerBound.toString(),
+            idleDuration: idleDuration.toString(),
         },
     };
 }

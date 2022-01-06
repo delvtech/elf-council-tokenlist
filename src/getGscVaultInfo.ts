@@ -35,8 +35,8 @@ export async function getGscVaultInfo(
     symbol: "",
     extensions: {
       coreVoting,
-      votingPowerBound: votingPowerBound.toNumber(),
-      idleDuration: idleDuration.toNumber(),
+      votingPowerBound: votingPowerBound.toString(),
+      idleDuration: idleDuration.toString(),
     },
   };
 }
