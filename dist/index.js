@@ -7,7 +7,7 @@ var ethers = require('ethers');
 var utils = require('ethers/lib/utils');
 
 var addresses = {
-	airdrop: "0x90123455668bA2B12CA76962a88c2e1c20B17F62",
+	airdrop: "0xb7920477F7A39c3DffA925076857eB1585503e1B",
 	coreVoting: "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
 	elementToken: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
 	gscCoreVoting: "0x600c4926c9F88beCE3533ceaAA36804d6E23F1c1",
@@ -29,7 +29,7 @@ var goerliAddressListJson = {
 
 var name = "Council goerli token list";
 var logoURI = "https://element.fi/logo.svg";
-var timestamp = "2022-01-06T17:43:00.739Z";
+var timestamp = "2022-01-07T20:15:25.920Z";
 var version = {
 	major: 0,
 	minor: 1,
@@ -123,13 +123,13 @@ var tokens = [
 	},
 	{
 		chainId: 5,
-		address: "0x90123455668bA2B12CA76962a88c2e1c20B17F62",
+		address: "0xb7920477F7A39c3DffA925076857eB1585503e1B",
 		name: "Element Airdrop Contract",
 		decimals: 0,
 		symbol: "",
 		extensions: {
 			rewardsRoot: "0x9aafc9b1d8798b80c68d556519e69c64fbe5a4b205bbdccec12375353a1bf784",
-			lockingVault: "0xFd6e33F5321E5E138ad354F412f7eD9083757dae",
+			lockingVault: "0xb5E8AF575Ee302A24c6C7746a99D895BeF67cb5D",
 			expiration: "9999999999",
 			token: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601"
 		}
