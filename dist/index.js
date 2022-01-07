@@ -8,7 +8,7 @@ var utils = require('ethers/lib/utils');
 
 var addresses = {
 	airdrop: "0xb7920477F7A39c3DffA925076857eB1585503e1B",
-	coreVoting: "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
+	coreVoting: "0x0CB8aa45068EE31e97B717b0B35e26A43884c84c",
 	elementToken: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
 	gscCoreVoting: "0x600c4926c9F88beCE3533ceaAA36804d6E23F1c1",
 	gscVault: "0x0A575bFA79454112c37B9Af2a6362c9c68f7d2e3",
@@ -29,7 +29,7 @@ var goerliAddressListJson = {
 
 var name = "Council goerli token list";
 var logoURI = "https://element.fi/logo.svg";
-var timestamp = "2022-01-07T20:15:25.920Z";
+var timestamp = "2022-01-07T23:11:40.881Z";
 var version = {
 	major: 0,
 	minor: 1,
@@ -45,14 +45,14 @@ var tokens = [
 	},
 	{
 		chainId: 5,
-		address: "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
+		address: "0x0CB8aa45068EE31e97B717b0B35e26A43884c84c",
 		name: "Element Core Voting Contract",
 		decimals: 0,
 		symbol: "",
 		extensions: {
 			dayInBlocks: 6496,
 			baseQuorum: "100000.0",
-			lockDuration: 19488,
+            lockDuration: 19488,
 			minProposalPower: "10000.0",
 			extraVoteTime: 32480
 		}

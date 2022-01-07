@@ -1,7 +1,7 @@
 {
   "name": "Council goerli token list",
   "logoURI": "https://element.fi/logo.svg",
-  "timestamp": "2022-01-07T20:15:25.920Z",
+  "timestamp": "2022-01-07T23:11:40.881Z",
   "version": {
     "major": 0,
     "minor": 1,
@@ -17,7 +17,7 @@
     },
     {
       "chainId": 5,
-      "address": "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
+      "address": "0x0CB8aa45068EE31e97B717b0B35e26A43884c84c",
       "name": "Element Core Voting Contract",
       "decimals": 0,
       "symbol": "",
