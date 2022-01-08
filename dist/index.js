@@ -17,8 +17,8 @@ var addresses = {
 	optimisticGrants: "0x092B49777CB45dc4939FBc4029ce7a116D63D29D",
 	optimisticRewardsVault: "0x0000000000000000000000000000000000000000",
 	spender: "0x722289C399e6f4AbCE80FaFbABC9a9876432834C",
-	timeLock: "0x850f854e191fA84375c10D43f9E2a68c46579a23",
-	treasury: "0x554fD1BF502C2D758bE72C211D9E3a596c579335",
+	timeLock: "0x36687bdD319a78AB4b4347f3A7459Da235AFc4f4",
+	treasury: "0xd46dDb33A33FD3D352d08cc7022Ce1f5c6ccFF1a",
 	vestingVault: "0xe69D2F8DeD2924e0845118E7E467Fc97F7994ef6"
 };
 var chainId = 5;
@@ -29,7 +29,7 @@ var goerliAddressListJson = {
 
 var name = "Council goerli token list";
 var logoURI = "https://element.fi/logo.svg";
-var timestamp = "2022-01-07T23:11:40.881Z";
+var timestamp = "2022-01-08T00:12:47.539Z";
 var version = {
 	major: 0,
 	minor: 1,
@@ -100,7 +100,7 @@ var tokens = [
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			coreVoting: "0x61689Fdfd0Cc7Bee662a33eD4d29e2eD6e371E76",
+			coreVoting: "0x0CB8aa45068EE31e97B717b0B35e26A43884c84c",
 			votingPowerBound: "100000000000000000000000",
 			idleDuration: "345600"
 		}
@@ -136,22 +136,22 @@ var tokens = [
 	},
 	{
 		chainId: 5,
-		address: "0x554fD1BF502C2D758bE72C211D9E3a596c579335",
+		address: "0xd46dDb33A33FD3D352d08cc7022Ce1f5c6ccFF1a",
 		name: "Element Treasury",
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			owner: "0x850f854e191fA84375c10D43f9E2a68c46579a23"
+			owner: "0xcF3b7bcBbcEFF836F81f6EAd914706E699267bca"
 		}
 	},
 	{
 		chainId: 5,
-		address: "0x850f854e191fA84375c10D43f9E2a68c46579a23",
+		address: "0x36687bdD319a78AB4b4347f3A7459Da235AFc4f4",
 		name: "Element Timelock",
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			waitTime: "1000"
+			waitTime: "10"
 		}
 	}
 ];
