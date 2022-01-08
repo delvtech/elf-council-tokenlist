@@ -52,9 +52,9 @@ var tokens = [
 		extensions: {
 			dayInBlocks: 6496,
 			baseQuorum: "100000.0",
-			lockDuration: 1,
-			minProposalPower: "0.000000000000000001",
-			extraVoteTime: 1
+            lockDuration: 19488,
+			minProposalPower: "10000.0",
+			extraVoteTime: 32480
 		}
 	},
 	{
