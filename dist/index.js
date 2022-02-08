@@ -13,7 +13,6 @@ var addresses = {
 	gscCoreVoting: "0x600c4926c9F88beCE3533ceaAA36804d6E23F1c1",
 	gscVault: "0x0A575bFA79454112c37B9Af2a6362c9c68f7d2e3",
 	lockingVault: "0xb5E8AF575Ee302A24c6C7746a99D895BeF67cb5D",
-	nonFungibleVotingVault: "0x9eE5f603D8dCFbdF06f23aE0960F704b85F12fAb",
 	optimisticGrants: "0x092B49777CB45dc4939FBc4029ce7a116D63D29D",
 	optimisticRewardsVault: "0x0000000000000000000000000000000000000000",
 	spender: "0x722289C399e6f4AbCE80FaFbABC9a9876432834C",
@@ -29,7 +28,7 @@ var goerliAddressListJson = {
 
 var name = "Council goerli token list";
 var logoURI = "https://element.fi/logo.svg";
-var timestamp = "2022-01-08T00:12:47.539Z";
+var timestamp = "2022-02-08T21:51:54.132Z";
 var version = {
 	major: 0,
 	minor: 1,
@@ -51,9 +50,9 @@ var tokens = [
 		symbol: "",
 		extensions: {
 			dayInBlocks: 6496,
-			baseQuorum: "100000.0",
-            lockDuration: 19488,
-			minProposalPower: "10000.0",
+			baseQuorum: "1000000.0",
+			lockDuration: 19488,
+			minProposalPower: "0.000000000000000001",
 			extraVoteTime: 32480
 		}
 	},
@@ -107,22 +106,6 @@ var tokens = [
 	},
 	{
 		chainId: 5,
-		address: "0x9eE5f603D8dCFbdF06f23aE0960F704b85F12fAb",
-		name: "Element Non Fungible Voting Vault",
-		decimals: 0,
-		symbol: "",
-		extensions: {
-			pendingRoot: "0x29a76ced28d03a64f71f30eb01dc9b622e43a8bd39e276d9b2a7c1ca0185fe34",
-			proposalTime: 1637006351,
-			proposer: "0xcF3b7bcBbcEFF836F81f6EAd914706E699267bca",
-			challengePeriod: 0,
-			rewardsRoot: "0x29a76ced28d03a64f71f30eb01dc9b622e43a8bd39e276d9b2a7c1ca0185fe34",
-			lockingVault: "0xFd6e33F5321E5E138ad354F412f7eD9083757dae",
-			token: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601"
-		}
-	},
-	{
-		chainId: 5,
 		address: "0xb7920477F7A39c3DffA925076857eB1585503e1B",
 		name: "Element Airdrop Contract",
 		decimals: 0,
@@ -151,7 +134,7 @@ var tokens = [
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			waitTime: "10"
+			waitTime: "1"
 		}
 	}
 ];
@@ -395,7 +378,7 @@ async function getVotingTokenInfo(provider, chainId, tokenAddress) {
 }
 
 async function getTokenList(provider, addressesJson, name) {
-    const { chainId, addresses: { elementToken, coreVoting, gscCoreVoting, timeLock, lockingVault, vestingVault, optimisticRewardsVault, nonFungibleVotingVault, airdrop, optimisticGrants, treasury, gscVault, }, } = addressesJson;
+    const { chainId, addresses: { elementToken, coreVoting, gscCoreVoting, timeLock, lockingVault, vestingVault, optimisticRewardsVault, airdrop, optimisticGrants, treasury, gscVault, }, } = addressesJson;
     const elementTokenInfo = await getVotingTokenInfo(provider, chainId, elementToken);
     const coreVotingInfo = await getCoreVotingInfo(provider, chainId, coreVoting, "Element Core Voting Contract");
     const gscCoreVotingInfo = await getCoreVotingInfo(provider, chainId, gscCoreVoting, "Element GSC Core Voting Contract");
@@ -403,7 +386,6 @@ async function getTokenList(provider, addressesJson, name) {
     const vestingVaultInfo = await getLockingVaultInfo(provider, chainId, vestingVault, "Element Vesting Vault");
     const gscVaultInfo = await getGscVaultInfo(provider, chainId, gscVault, "Element Governance Steering Committee Vault");
     const optimisticRewardsVaultInfo = await getOptimisticRewardsVaultInfo(provider, chainId, optimisticRewardsVault, "Element Optimistic Rewards Vault");
-    const nonFungibleVotingVaultInfo = await getOptimisticRewardsVaultInfo(provider, chainId, nonFungibleVotingVault, "Element Non Fungible Voting Vault");
     let optimisticGrantsInfo;
     try {
         optimisticGrantsInfo = await getOptimisticGrantsInfo(provider, chainId, optimisticGrants, "Element Optimistic Grants Vault");
@@ -437,7 +419,6 @@ async function getTokenList(provider, addressesJson, name) {
             vestingVaultInfo,
             gscVaultInfo,
             optimisticRewardsVaultInfo,
-            nonFungibleVotingVaultInfo,
             optimisticGrantsInfo,
             airdropInfo,
             treasuryInfo,

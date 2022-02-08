@@ -1,7 +1,7 @@
 {
   "name": "Council goerli token list",
   "logoURI": "https://element.fi/logo.svg",
-  "timestamp": "2022-01-08T00:12:47.539Z",
+  "timestamp": "2022-02-08T21:51:54.132Z",
   "version": {
     "major": 0,
     "minor": 1,
@@ -23,9 +23,9 @@
       "symbol": "",
       "extensions": {
         "dayInBlocks": 6496,
-        "baseQuorum": "100000.0",
+        "baseQuorum": "1000000.0",
         "lockDuration": 19488,
-        "minProposalPower": "10000.0",
+        "minProposalPower": "0.000000000000000001",
         "extraVoteTime": 32480
       }
     },
@@ -79,22 +79,6 @@
     },
     {
       "chainId": 5,
-      "address": "0x9eE5f603D8dCFbdF06f23aE0960F704b85F12fAb",
-      "name": "Element Non Fungible Voting Vault",
-      "decimals": 0,
-      "symbol": "",
-      "extensions": {
-        "pendingRoot": "0x29a76ced28d03a64f71f30eb01dc9b622e43a8bd39e276d9b2a7c1ca0185fe34",
-        "proposalTime": 1637006351,
-        "proposer": "0xcF3b7bcBbcEFF836F81f6EAd914706E699267bca",
-        "challengePeriod": 0,
-        "rewardsRoot": "0x29a76ced28d03a64f71f30eb01dc9b622e43a8bd39e276d9b2a7c1ca0185fe34",
-        "lockingVault": "0xFd6e33F5321E5E138ad354F412f7eD9083757dae",
-        "token": "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601"
-      }
-    },
-    {
-      "chainId": 5,
       "address": "0xb7920477F7A39c3DffA925076857eB1585503e1B",
       "name": "Element Airdrop Contract",
       "decimals": 0,
@@ -123,7 +107,7 @@
       "decimals": 0,
       "symbol": "",
       "extensions": {
-        "waitTime": "10"
+        "waitTime": "1"
       }
     }
   ]
