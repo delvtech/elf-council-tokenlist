@@ -3,6 +3,8 @@ import { AddressesJsonFile } from "./addresses/AddressesJsonFile";
 export { AddressesJsonFile } from "./addresses/AddressesJsonFile";
 export declare const goerliTokenList: TokenList;
 export declare const goerliAddressList: AddressesJsonFile;
+export declare const mainnetTokenList: TokenList;
+export declare const mainnetAddressList: AddressesJsonFile;
 export { getTokenList } from "./getTokenList";
 /**
  * Elf Council tokenlist type definitions.

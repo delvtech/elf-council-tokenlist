@@ -10,6 +10,7 @@ export interface AddressesJsonFile {
         vestingVault: string;
         optimisticRewardsVault: string;
         optimisticGrants: string;
+        spender: string;
         airdrop: string;
         treasury: string;
     };

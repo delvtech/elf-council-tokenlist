@@ -43,7 +43,7 @@
     "update-elf-council-typechain": "npm install git+https://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:x-oauth-basic@github.com/element-fi/elf-council-typechain.git",
     "_build-tokenlist-goerli": "bash scripts/build-tokenlist.sh goerli",
     "_build-tokenlist-mainnet": "bash scripts/build-tokenlist.sh mainnet",
-    "build-tokenlist": "npm run _build-tokenlist-goerli",
+    "build-tokenlist": "npm run _build-tokenlist-goerli && npm run _build-tokenlist-mainnet",
     "build-package": "rollup -c",
     "build": "npm run build-tokenlist && npm run build-package"
   }

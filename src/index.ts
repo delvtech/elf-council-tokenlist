@@ -2,10 +2,19 @@ import { TokenList } from "@uniswap/token-lists";
 import { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
 import goerliAddressListJson from "src/addresses/goerli.addresses.json";
 import goerliTokenListJson from "src/tokenlists/goerli.tokenlist.json";
+import mainnetAddressListJson from "src/addresses/mainnet.addresses.json";
+import mainnetTokenListJson from "src/tokenlists/mainnet.tokenlist.json";
 
+// export addresses json file definition
 export { AddressesJsonFile } from "src/addresses/AddressesJsonFile";
+
+// export goerli jsons
 export const goerliTokenList: TokenList = goerliTokenListJson as TokenList;
 export const goerliAddressList: AddressesJsonFile = goerliAddressListJson;
+
+// export mainnet jsons
+export const mainnetTokenList: TokenList = mainnetTokenListJson as TokenList;
+export const mainnetAddressList: AddressesJsonFile = mainnetAddressListJson;
 
 export { getTokenList } from "src/getTokenList";
 
