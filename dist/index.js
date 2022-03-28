@@ -6,7 +6,7 @@ var elfCouncilTypechain = require('elf-council-typechain');
 var ethers = require('ethers');
 var utils = require('ethers/lib/utils');
 
-var addresses = {
+var addresses$1 = {
 	airdrop: "0xb7920477F7A39c3DffA925076857eB1585503e1B",
 	coreVoting: "0x0CB8aa45068EE31e97B717b0B35e26A43884c84c",
 	elementToken: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
@@ -20,21 +20,21 @@ var addresses = {
 	treasury: "0xd46dDb33A33FD3D352d08cc7022Ce1f5c6ccFF1a",
 	vestingVault: "0xe69D2F8DeD2924e0845118E7E467Fc97F7994ef6"
 };
-var chainId = 5;
+var chainId$1 = 5;
 var goerliAddressListJson = {
-	addresses: addresses,
-	chainId: chainId
+	addresses: addresses$1,
+	chainId: chainId$1
 };
 
-var name = "Council goerli token list";
-var logoURI = "https://element.fi/logo.svg";
-var timestamp = "2022-02-08T21:51:54.132Z";
-var version = {
+var name$1 = "Council goerli token list";
+var logoURI$1 = "https://element.fi/logo.svg";
+var timestamp$1 = "2022-02-08T21:51:54.132Z";
+var version$1 = {
 	major: 0,
 	minor: 1,
 	patch: 0
 };
-var tokens = [
+var tokens$1 = [
 	{
 		chainId: 5,
 		address: "0x2b1a91De5B9C3Ad6439eeAeD0E481F8cf6E22601",
@@ -139,6 +139,146 @@ var tokens = [
 	}
 ];
 var goerliTokenListJson = {
+	name: name$1,
+	logoURI: logoURI$1,
+	timestamp: timestamp$1,
+	version: version$1,
+	tokens: tokens$1
+};
+
+var addresses = {
+	airdrop: "0xd04a459FFD3A5E3C93d5cD8BB13d26a9845716c2",
+	coreVoting: "0xEaCD577C3F6c44C3ffA398baaD97aE12CDCFed4a",
+	elementToken: "0x5c6D51ecBA4D8E4F20373e3ce96a62342B125D6d",
+	gscCoreVoting: "0x40309f197e7f94B555904DF0f788a3F48cF326aB",
+	gscVault: "0xcA870E8aa4FCEa85b5f0c6F4209C8CBA9265B940",
+	lockingVault: "0x02Bd4A3b1b95b01F2Aa61655415A5d3EAAcaafdD",
+	optimisticGrants: "0x0000000000000000000000000000000000000000",
+	optimisticRewardsVault: "0x0000000000000000000000000000000000000000",
+	spender: "0xDa2Baf34B5717b257e52039f78d02B9C58751781",
+	timeLock: "0x81758f3361A769016eae4844072FA6d7f828a651",
+	treasury: "0x82eF450FB7f06E3294F2f19ed1713b255Af0f541",
+	vestingVault: "0x6De73946eab234F1EE61256F10067D713aF0e37A"
+};
+var chainId = 1;
+var mainnetAddressListJson = {
+	addresses: addresses,
+	chainId: chainId
+};
+
+var name = "Council mainnet token list";
+var logoURI = "https://element.fi/logo.svg";
+var timestamp = "2022-03-28T21:52:58.572Z";
+var version = {
+	major: 0,
+	minor: 1,
+	patch: 0
+};
+var tokens = [
+	{
+		chainId: 1,
+		address: "0x5c6D51ecBA4D8E4F20373e3ce96a62342B125D6d",
+		symbol: "ELFI",
+		decimals: 18,
+		name: "Element Finance"
+	},
+	{
+		chainId: 1,
+		address: "0xEaCD577C3F6c44C3ffA398baaD97aE12CDCFed4a",
+		name: "Element Core Voting Contract",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			dayInBlocks: 6496,
+			baseQuorum: "1100000.0",
+			lockDuration: 19488,
+			minProposalPower: "55000.0",
+			extraVoteTime: 32480
+		}
+	},
+	{
+		chainId: 1,
+		address: "0x40309f197e7f94B555904DF0f788a3F48cF326aB",
+		name: "Element GSC Core Voting Contract",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			dayInBlocks: 6496,
+			baseQuorum: "0.000000000000000001",
+			lockDuration: 19488,
+			minProposalPower: "0.000000000000000001",
+			extraVoteTime: 32480
+		}
+	},
+	{
+		chainId: 1,
+		address: "0x02Bd4A3b1b95b01F2Aa61655415A5d3EAAcaafdD",
+		name: "Element Locking Vault",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			token: "0x5c6D51ecBA4D8E4F20373e3ce96a62342B125D6d",
+			staleBlockLag: 200000
+		}
+	},
+	{
+		chainId: 1,
+		address: "0x6De73946eab234F1EE61256F10067D713aF0e37A",
+		name: "Element Vesting Vault",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			token: "0x5c6D51ecBA4D8E4F20373e3ce96a62342B125D6d",
+			staleBlockLag: 200000
+		}
+	},
+	{
+		chainId: 1,
+		address: "0xcA870E8aa4FCEa85b5f0c6F4209C8CBA9265B940",
+		name: "Element Governance Steering Committee Vault",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			coreVoting: "0xEaCD577C3F6c44C3ffA398baaD97aE12CDCFed4a",
+			votingPowerBound: "1000000000000000000000000",
+			idleDuration: "345600"
+		}
+	},
+	{
+		chainId: 1,
+		address: "0xd04a459FFD3A5E3C93d5cD8BB13d26a9845716c2",
+		name: "Element Airdrop Contract",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			rewardsRoot: "0x5868b38fb60678b88b07721f03bc9bfd5be6b4f17829f5703e3556b31f4073c6",
+			lockingVault: "0x02Bd4A3b1b95b01F2Aa61655415A5d3EAAcaafdD",
+			expiration: "1680220799",
+			token: "0x5c6D51ecBA4D8E4F20373e3ce96a62342B125D6d"
+		}
+	},
+	{
+		chainId: 1,
+		address: "0x82eF450FB7f06E3294F2f19ed1713b255Af0f541",
+		name: "Element Treasury",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			owner: "0x422494292e7a9Dda8778Bb4EA05C2779a3d60f5D"
+		}
+	},
+	{
+		chainId: 1,
+		address: "0x81758f3361A769016eae4844072FA6d7f828a651",
+		name: "Element Timelock",
+		decimals: 0,
+		symbol: "",
+		extensions: {
+			waitTime: "10"
+		}
+	}
+];
+var mainnetTokenListJson = {
 	name: name,
 	logoURI: logoURI,
 	timestamp: timestamp,
@@ -428,9 +568,15 @@ async function getTokenList(provider, addressesJson, name) {
     return tokenList;
 }
 
+// export goerli jsons
 const goerliTokenList = goerliTokenListJson;
 const goerliAddressList = goerliAddressListJson;
+// export mainnet jsons
+const mainnetTokenList = mainnetTokenListJson;
+const mainnetAddressList = mainnetAddressListJson;
 
 exports.getTokenList = getTokenList;
 exports.goerliAddressList = goerliAddressList;
 exports.goerliTokenList = goerliTokenList;
+exports.mainnetAddressList = mainnetAddressList;
+exports.mainnetTokenList = mainnetTokenList;
