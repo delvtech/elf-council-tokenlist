@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var elfCouncilTypechain = require('elf-council-typechain');
+var elfCouncilTypechain = require('@elementfi/elf-council-typechain');
 var ethers = require('ethers');
 var utils = require('ethers/lib/utils');
 
@@ -28,7 +28,7 @@ var goerliAddressListJson = {
 
 var name$1 = "Council goerli token list";
 var logoURI$1 = "https://element.fi/logo.svg";
-var timestamp$1 = "2022-02-08T21:51:54.132Z";
+var timestamp$1 = "2022-03-31T21:37:38.388Z";
 var version$1 = {
 	major: 0,
 	minor: 1,
@@ -53,7 +53,7 @@ var tokens$1 = [
 			baseQuorum: "1000000.0",
 			lockDuration: 19488,
 			minProposalPower: "0.000000000000000001",
-			extraVoteTime: 32480
+			extraVoteTime: 2371040
 		}
 	},
 	{
@@ -168,7 +168,7 @@ var mainnetAddressListJson = {
 
 var name = "Council mainnet token list";
 var logoURI = "https://element.fi/logo.svg";
-var timestamp = "2022-03-28T21:52:58.572Z";
+var timestamp = "2022-03-31T21:37:58.016Z";
 var version = {
 	major: 0,
 	minor: 1,
@@ -240,7 +240,7 @@ var tokens = [
 		symbol: "",
 		extensions: {
 			coreVoting: "0xEaCD577C3F6c44C3ffA398baaD97aE12CDCFed4a",
-			votingPowerBound: "1000000000000000000000000",
+			votingPowerBound: "110000000000000000000000",
 			idleDuration: "345600"
 		}
 	},
@@ -264,7 +264,7 @@ var tokens = [
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			owner: "0x422494292e7a9Dda8778Bb4EA05C2779a3d60f5D"
+			owner: "0x81758f3361A769016eae4844072FA6d7f828a651"
 		}
 	},
 	{
@@ -274,7 +274,7 @@ var tokens = [
 		decimals: 0,
 		symbol: "",
 		extensions: {
-			waitTime: "10"
+			waitTime: "604800"
 		}
 	}
 ];
