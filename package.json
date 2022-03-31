@@ -1,6 +1,6 @@
 {
   "name": "@elementfi/elf-council-tokenlist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A uniswap specced tokenlist for elf council contracts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
