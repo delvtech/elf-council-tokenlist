@@ -9,11 +9,7 @@
   ],
   "dependencies": {
     "@ethersproject/providers": "^5.4.0",
-    "@uniswap/token-lists": "^1.0.0-beta.26",
-    "elf-council-typechain": "git+https://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:x-oauth-basic@github.com/element-fi/elf-council-typechain.git"
-  },
-  "peerDependencies": {
-    "elf-council-typechain": "git+https://github.com/element-fi/elf-council-typechain.git"
+    "@uniswap/token-lists": "^1.0.0-beta.26"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -40,7 +36,6 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "scripts": {
-    "update-elf-council-typechain": "npm install git+https://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:x-oauth-basic@github.com/element-fi/elf-council-typechain.git",
     "_build-tokenlist-goerli": "bash scripts/build-tokenlist.sh goerli",
     "_build-tokenlist-mainnet": "bash scripts/build-tokenlist.sh mainnet",
     "build-tokenlist": "npm run _build-tokenlist-goerli && npm run _build-tokenlist-mainnet",
